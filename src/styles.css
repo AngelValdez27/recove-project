@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*align justify*/
+.txt-justify {
+    text-align: justify;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+/* font size */
+.text-08r{
+    font-size: 0.8rem;
+}
+.text-1r{
+    font-size: 1rem;
+}
+.text-1_2r{
+    font-size: 1.2rem;
+}
+.text-1_5r{
+    font-size: 1.5rem;
+}
+.text-2r{
+    font-size: 2rem;
+}
+.text-3r{
+    font-size: 3rem;
+}
