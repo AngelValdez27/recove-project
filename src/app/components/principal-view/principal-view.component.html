@@ -1,0 +1,652 @@
+<section>
+  <div class="container-nav" style="width: 100%">
+    <nav #navbar_menu class="navbar-navbar bg-gray" style="width: 100%">
+      <div class="li-logo-nav">
+        <a class="nav-logo" routerLink="/principal"
+          ><img
+            class="logo-w"
+            src="../../../assets/src/images/RECOVE_RECOVE_B_T.webp"
+            alt=""
+            loading="lazy"
+        /></a>
+        <div class="icon-close">
+          <svg
+            #div_close
+            (click)="closeMenu()"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-x animate__animated animate__delay-1s"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#ffffff"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+      <div class="links">
+        <a class="link-quest" routerLink="/about-us">Nosotros</a
+        ><a class="link-quest" routerLink="/houses">Casas</a
+        ><a class="link-quest" routerLink="/condos">Condominios</a>
+        <a class="link-quest" routerLink="/lands">Terrenos</a>
+        <a class="link-quest" routerLink="/shops">Local comercial</a>
+        <a class="link-quest" routerLink="/projects">Proyectos</a>
+      </div>
+    </nav>
+    <!-- NAVBAR MENU ENDS -->
+    <div class="div-nav-2 bg-gray">
+      <svg
+        #icon_nav_2
+        (click)="showMenu()"
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-menu-2 animate__animated"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#ffffff"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 6l16 0" />
+        <path d="M4 12l16 0" />
+        <path d="M4 18l16 0" />
+      </svg>
+    </div>
+  </div>
+  <!-- div navbar responsive ends -->
+  <div class="container-splash">
+    <carousel [isAnimated]="true">
+      <slide *ngFor="let slide of slides" style="background-color: aqua">
+        <img
+          src="{{ slide.src }}"
+          alt="first slide"
+          style="display: block; width: 80%"
+          loading="lazy"
+        />
+      </slide>
+    </carousel>
+    <!-- <img
+      class="img-splash"
+      src="../../../assets/src/images/splash/SLIDER_T.webp"
+      alt=""
+    /> -->
+    <!-- <div
+      class="btn-question animate__animated animate__fadeInUp animate__delay-4s"
+    >
+      <a class="link-quest" type="button" href="#houses"
+        >¿Que estás buscando?</a
+      >
+    </div> -->
+  </div>
+  <!-- div splash ends -->
+  <div class="div-container-seeker">
+    <h1 class="">¿Que buscas?</h1>
+    <form action="" class="row">
+      <div class="div-select col-12 col-md-3">
+        <select class="form-select select" name="select1" id="select1">
+          <option class="option" value="" selected>Selecciona un tipo</option>
+          <option [value]="option.id" *ngFor="let option of options">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="div-select col-12 col-md-3">
+        <select class="form-select select" name="select1" id="select1">
+          <option class="option" value="" selected>Selecciona ubicación</option>
+          <option [value]="option.id" *ngFor="let option of options">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="div-select col-12 col-md-3">
+        <select class="form-select select" name="select1" id="select1">
+          <option class="option" value="" selected>Presupuesto</option>
+          <option [value]="option.id" *ngFor="let option of options">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="div-select div-btn col-12 col-md-3">
+        <button class="btn-search" type="button">Buscar</button>
+      </div>
+    </form>
+  </div>
+  <!-- Section seeker ends -->
+
+  <div class="container-storage">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-building-estate"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#9e9e9e"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 21h18" />
+        <path d="M19 21v-4" />
+        <path d="M19 17a2 2 0 0 0 2 -2v-2a2 2 0 1 0 -4 0v2a2 2 0 0 0 2 2z" />
+        <path d="M14 21v-14a3 3 0 0 0 -3 -3h-4a3 3 0 0 0 -3 3v14" />
+        <path d="M9 17v4" />
+        <path d="M8 13h2" />
+        <path d="M8 9h2" />
+      </svg>
+    </div>
+    <div>
+      <p class="text-2r" data-aos="fade-up">Inventario</p>
+      <p data-aos="fade-down txt-justify">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+        harum deleniti in iure assumenda quos dolor ipsa soluta facilis.
+      </p>
+    </div>
+  </div>
+  <div id="houses" class="container-houses row">
+    <div
+      *ngFor="let building of buildings"
+      class="div-house house-bg col-md-3 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div>
+        <p class="text-1_2r text-storage">
+          {{ building.id }} {{ building.name }}
+        </p>
+        <!--   <img
+          class="icon-house"
+          src="../../../assets/src/images/icons_house/CASA_ICONO.webp"
+          alt=""
+        /> -->
+      </div>
+      <div class="div-btn-plus">
+        <div class="more d-flex align-items-center justify-content-center me-2">
+          <p class="text-storage">Ver más</p>
+        </div>
+
+        <a href="" class="link-detail">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-square-plus"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+            />
+            <path d="M9 12l6 0" />
+            <path d="M12 9l0 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- <div class="div-house house-bg"></div>
+    <div class="div-house house-bg"></div>
+    <div class="div-house house-bg"></div> -->
+  </div>
+  <!-- storage section ends -->
+  <div class="recently-buildings row d-flex justify-content-center">
+    <div class="container text-center mt-4" data-aos="zoom-in-up">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-urgent"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#9e9e9e"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M8 16v-4a4 4 0 0 1 8 0v4" />
+        <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+        <path
+          d="M6 16m0 1a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"
+        />
+      </svg>
+      <p class="text-2r" data-aos="zoom-in-down">Lo más reciente</p>
+    </div>
+
+    <div
+      *ngFor="let b of recently_buildings"
+      data-aos="flip-left"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      class="card-building card bg-dark text-white col-md-4 col-sm-6 col-12 mask1"
+    >
+      <div class="container-card-building">
+        <img src="{{ b.image }}" class="card-img" alt="..." loading="lazy" />
+        <div class="card-img-overlay card-over">
+          <h5 class="card-title card-name">{{ b.name }}</h5>
+          <p class="card-text card-price">
+            {{ b.price | currency : "MXN" }}
+          </p>
+          <div *ngIf="b.venta" class="container-tag">
+            <div class="card-tag">
+              <p class="card-text">Venta</p>
+            </div>
+            <div class="card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-square-rounded-arrow-right card-icon-arrow"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 16l4 -4l-4 -4" />
+                <path d="M8 12h8" />
+                <path
+                  d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div *ngIf="!b.venta" class="container-tag">
+            <div class="card-tag">
+              <p class="card-text">Renta</p>
+            </div>
+            <div class="card-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-square-rounded-arrow-right card-icon-arrow"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 16l4 -4l-4 -4" />
+                <path d="M8 12h8" />
+                <path
+                  d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Recently ends -->
+  <div class="container-condos row d-flex justify-content-center">
+    <div class="container text-center mt-4" data-aos="zoom-in-up">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-cash"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#9e9e9e"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M7 9m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"
+        />
+        <path d="M14 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+        <path
+          d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"
+        />
+      </svg>
+      <p class="text-2r" data-aos="zoom-in-down">Condominios en venta</p>
+    </div>
+    <div class="carousel-condos">
+      <carousel
+        class="carousel-condo-1"
+        [itemsPerSlide]="itemsPerSlide"
+        [singleSlideOffset]="false"
+        [interval]="2000"
+        [indicatorsByChunk]="true"
+      >
+        <slide
+          *ngFor="let condo of recently_buildings"
+          class="slide-condo"
+          data-aos="zoom-out-left"
+          data-aos-duration="1000"
+        >
+          <div class="img-slide">
+            <img
+              src="{{ condo.image }}"
+              alt="first slide"
+              style="display: block; width: 100%"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="carousel-caption c-caption-condo"
+            style="text-align: start"
+          >
+            <p class="text-1r card-condo-name">{{ condo.name }}</p>
+            <p class="text-1_2r card-condo-price">
+              {{ condo.price | currency : "MXN" }}
+            </p>
+            <div *ngIf="condo.venta" class="container-tag container-tag-condo">
+              <div class="card-tag-condo">
+                <p class="card-text text-sell">Venta</p>
+              </div>
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-square-arrow-right"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#fff"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 16l4 -4l-4 -4" />
+                  <path d="M8 12h8" />
+                  <path
+                    d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <!-- if -->
+            <div *ngIf="!condo.venta" class="container-tag">
+              <div class="card-tag-condo">
+                <p class="card-text text-sell">Renta</p>
+              </div>
+              <div class="card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-square-arrow-right"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="#fff"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 16l4 -4l-4 -4" />
+                  <path d="M8 12h8" />
+                  <path
+                    d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </slide>
+      </carousel>
+      <!-- carousel 1  ends -->
+      <carousel [isAnimated]="true" class="carousel-condo-2">
+        <slide
+          *ngFor="let condo of recently_buildings; mask1: slide - condo - 2"
+        >
+          <img
+            class="img-condo-slide"
+            src="{{ condo.image }}"
+            alt="first slide"
+            style="display: block; width: 100%"
+          />
+          <div class="carousel-caption carousel-caption-condo">
+            <h3 class="text-1_2r condo-name-2">{{ condo.name }}</h3>
+            <p class="text-2r condo-price-2">
+              {{ condo.price | currency : "MXN" }}
+            </p>
+          </div>
+        </slide>
+      </carousel>
+      <!-- carousel 2 ends -->
+    </div>
+  </div>
+  <!-- Condos ends -->
+</section>
+<!-- <carousel [isAnimated]="true">
+  <slide *ngFor="let slide of slides" style="background-color: aqua">
+    <img
+      src="{{ slide.src }}"
+      alt="first slide"
+      style="display: block; width: 100%"
+    />
+  </slide>
+</carousel> -->
+<footer>
+  <div class="container-footer">
+    <div class="d-flex row">
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">¿Quiénes somos?</p>
+        <p class="text-08r">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+          laboriosam, nulla accusamus nemo facere optio? Dolorum quo.
+        </p>
+      </div>
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">Contáctanos</p>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-map-pin icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path
+              d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+            />
+          </svg>
+          <p class="text-08r">
+            Av. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-phone icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+            />
+          </svg>
+          <p class="text-08r">(621) 754-754-7512</p>
+        </div>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-mail icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
+            />
+            <path d="M3 7l9 6l9 -6" />
+          </svg>
+          <p class="text-08r">lorem@gmail.com</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">Sede Monterrey</p>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-map-pin icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path
+              d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+            />
+          </svg>
+          <p class="text-08r">
+            Av. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-phone icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+            />
+          </svg>
+          <p class="text-08r">(621) 754-754-7512</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">Aviso de privacidad</p>
+        <div class="div-social-media gap-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-youtube icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
+            />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-twitter icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-instagram icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
+            />
+            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M16.5 7.5l0 .01" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-facebook icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-end txt-center">
+    <div class="img-footer-logo">
+      <img
+        class="footer-logo"
+        src="../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+        alt=""
+      />
+    </div>
+    <div class="mr">
+      <p><small>2023 | Todos los derechos reservados</small></p>
+    </div>
+  </div>
+</footer>

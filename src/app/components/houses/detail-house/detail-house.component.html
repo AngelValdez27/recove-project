@@ -1,0 +1,962 @@
+<div>
+  <div class="container-nav" style="width: 100%">
+    <nav #navbar_menu class="navbar-navbar bg-gray" style="width: 100%">
+      <div class="li-logo-nav">
+        <a class="nav-logo" routerLink="/principal"
+          ><img
+            class="logo-w"
+            src="../../../assets/src/images/RECOVE_RECOVE_B_T.webp"
+            alt=""
+            loading="lazy"
+        /></a>
+        <div class="icon-close">
+          <svg
+            #div_close
+            (click)="closeMenu()"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-x animate__animated animate__delay-1s"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#ffffff"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </div>
+      </div>
+      <div class="links">
+        <a class="link-quest" routerLink="/about-us">Nosotros</a
+        ><a class="link-quest" routerLink="/houses">Casas</a
+        ><a class="link-quest" routerLink="/condos">Condominios</a>
+        <a class="link-quest" routerLink="/lands">Terrenos</a>
+        <a class="link-quest" routerLink="/shops">Local comercial</a>
+        <a class="link-quest" routerLink="/projects">Proyectos</a>
+      </div>
+    </nav>
+    <!-- NAVBAR MENU ENDS -->
+    <div class="div-nav-2 bg-gray">
+      <svg
+        #icon_nav_2
+        (click)="showMenu()"
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-menu-2 animate__animated"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#ffffff"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 6l16 0" />
+        <path d="M4 12l16 0" />
+        <path d="M4 18l16 0" />
+      </svg>
+    </div>
+  </div>
+  <!-- div navbar responsive ends -->
+  <div class="container-principal">
+    <div class="row">
+      <div class="col-12 col-sm-5 col-md-6">
+        <h1 class="title">{{ located_building.name }}</h1>
+      </div>
+      <div class="col-12 col-sm-5 offset-sm-2 col-md-4 offset-md-2">
+        <h1 class="title">{{ located_building.price | currency : "MXN" }}</h1>
+      </div>
+      <div class="col-12 col-sm-5 col-md-6 d-flex align-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-map"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#9e9e9e"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 7l6 -3l6 3l6 -3l0 13l-6 3l-6 -3l-6 3l0 -13" />
+          <path d="M9 4l0 13" />
+          <path d="M15 7l0 13" />
+        </svg>
+        <h5 class="mb-0 text-ubication">{{ located_building.ubication }}</h5>
+      </div>
+      <div
+        *ngIf="located_building.on_sale"
+        class="col-12 col-sm-5 col-md-4 offset-md-2 offset-sm-2 d-flex align-items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-home-dollar text-onsale"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#9e9e9e"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 10l-7 -7l-9 9h2v7a2 2 0 0 0 2 2h6" />
+          <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.387 0 .748 .11 1.054 .3" />
+          <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" />
+          <path d="M19 21v1m0 -8v1" />
+        </svg>
+        <h5 class="mb-0 text-onsale">En venta</h5>
+      </div>
+      <div
+        *ngIf="!located_building.on_sale"
+        class="col-12 col-sm-6 col-md-4 d-flex align-items-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-home-dollar text-onrent"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#9e9e9e"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 10l-7 -7l-9 9h2v7a2 2 0 0 0 2 2h6" />
+          <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.387 0 .748 .11 1.054 .3" />
+          <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" />
+          <path d="M19 21v1m0 -8v1" />
+        </svg>
+        <h5 class="mb-0 text-onrent">En renta</h5>
+      </div>
+    </div>
+    <!-- Container titles ends -->
+    <div
+      class="container-carousel d-flex justify-content-center align-items-center"
+    >
+      <div class="sub-container-carousel">
+        <carousel [isAnimated]="true" class="d-flex justify-content-center">
+          <slide
+            class="d-flex justify-content-center"
+            *ngFor="let i of located_building.images"
+          >
+            <img
+              src="{{ i.src }}"
+              alt="first slide"
+              style="display: block; width: 100%"
+              loading="lazy"
+            />
+          </slide>
+        </carousel>
+      </div>
+    </div>
+    <!-- Contaner carousel ends -->
+    <div class="container-details-1 row d-flex justify-content-center">
+      <div
+        class="col-6 col-sm-6 col-md-3 d-flex justify-content-center border-details-1"
+      >
+        <div>
+          <div><h6 class="common-text">Tipo de propiedad</h6></div>
+          <div class="d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-home"
+              width="33"
+              height="33"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#9e9e9e"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            <h5 class="mb-0">{{ located_building.building_type }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-sm-6 col-md-3 d-flex justify-content-center border-details-1"
+      >
+        <div>
+          <div><h6 class="common-text">Habitaciones</h6></div>
+          <div class="d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-bed"
+              width="33"
+              height="33"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#9e9e9e"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6" />
+              <path d="M7 10m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            </svg>
+            <h5 class="mb-0">{{ located_building.rooms }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-sm-6 col-md-3 d-flex justify-content-center border-details-1"
+      >
+        <div>
+          <div><h6 class="common-text">Baños</h6></div>
+          <div class="d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-bath"
+              width="33"
+              height="33"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#9e9e9e"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z"
+              />
+              <path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" />
+              <path d="M4 21l1 -1.5" />
+              <path d="M20 21l-1 -1.5" />
+            </svg>
+            <h5 class="mb-0">{{ located_building.baths }}</h5>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-sm-6 col-md-3 d-flex justify-content-center border-details-1"
+      >
+        <div>
+          <div><h6 class="common-text">Área total</h6></div>
+          <div class="d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-ruler-measure"
+              width="33"
+              height="33"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#9e9e9e"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75z"
+              />
+              <path d="M9 12v2" />
+              <path d="M6 12v3" />
+              <path d="M12 12v3" />
+              <path d="M18 12v3" />
+              <path d="M15 12v2" />
+              <path d="M3 3v4" />
+              <path d="M3 5h18" />
+              <path d="M21 3v4" />
+            </svg>
+            <h5 class="mb-0">
+              {{ located_building.area_total }}Mts<sup>2</sup>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container details 1 ends -->
+    <div class="info-details row mt-5 p-3">
+      <section class="section-details col-12 col-sm-12 col-md-8 p-4">
+        <div class="d-flex align-items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-file-description"
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+            <path
+              d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"
+            />
+            <path d="M9 17h6" />
+            <path d="M9 13h6" />
+          </svg>
+          <h4 class="common-text mb-0">Descripción</h4>
+        </div>
+        <hr />
+        <div class="container-description">
+          <p class="text-1r txt-justify">{{ located_building.description }}</p>
+        </div>
+      </section>
+      <aside class="aside-details col-12 col-sm-12 col-md-4 p-4">
+        <form
+          class="row"
+          [formGroup]="emailForm"
+          (ngSubmit)="sendEmail($event)"
+        >
+          <div class="col-12 form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput1"
+              placeholder="Nombre completo"
+              formControlName="name"
+              name="name"
+              required
+            />
+            <label for="floatingInput">Nombre completo</label>
+          </div>
+          <div class="col-12 form-floating mb-3">
+            <input
+              type="tel"
+              class="form-control"
+              id="floatingInput3"
+              placeholder="Teléfono"
+              formControlName="phone"
+              name="phone"
+              required
+            />
+            <label for="floatingInput">Teléfono</label>
+          </div>
+          <div class="col-12 form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="floatingInput2"
+              placeholder="name@example.com"
+              formControlName="emailAddress"
+              name="email_address"
+              required
+            />
+            <label for="floatingInput">Correo electrónico</label>
+          </div>
+          <div class="form col-12 mb-3">
+            <textarea
+              class="form-control"
+              id="floatingTextarea2"
+              style="height: 100px"
+              rows="10"
+              formControlName="message"
+              name="message"
+              placeholder="Hola, me interesa {{ located_building.name }}"
+              required
+            ></textarea>
+          </div>
+          <input
+            type="hidden"
+            name="email_to"
+            value="{{ located_building.agent }}"
+          />
+          <div class="form-floating col-12">
+            <button
+              class="btn btn-send w-100 d-flex align-items-center justify-content-center"
+              [disabled]="!emailForm.valid"
+              type="submit"
+            >
+              <p class="mb-0">Enviar</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-send"
+                width="33"
+                height="33"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#9e9e9e"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 14l11 -11" />
+                <path
+                  d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </aside>
+      <!-- section - aside 1 ends -->
+      <section class="section-details col-12 col-sm-12 col-md-8 p-4 mt-4">
+        <div class="d-flex align-items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-text-plus"
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M19 10h-14" />
+            <path d="M5 6h14" />
+            <path d="M14 14h-9" />
+            <path d="M5 18h6" />
+            <path d="M18 15v6" />
+            <path d="M15 18h6" />
+          </svg>
+          <h4 class="common-text mb-0">Detalles</h4>
+        </div>
+        <hr />
+        <div class="container-description">
+          <div class="row extra-details">
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>No.</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.identifier }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Tipo de propiedad</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.building_type }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Precio</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.price | currency : "MXN" }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Estatus</b></p>
+                <p *ngIf="located_building.on_sale" class="mb-0 dynamic-text">
+                  En venta
+                </p>
+                <p *ngIf="!located_building.on_sale" class="mb-0 dynamic-text">
+                  En renta
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Habitaciones</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.rooms }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Baños</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.baths }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Área total</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.area_total }}Mts<sup>2</sup>
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Área construida</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.area_builded }}Mts<sup>2</sup>
+                </p>
+              </div>
+            </div>
+
+            <div
+              *ngIf="located_building.garage != 0"
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Cocheras</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.garage }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section extra details 1  ends -->
+
+      <aside class="aside-details col-12 col-sm-12 col-md-4 p-4 mt-4">
+        <div class="d-flex align-items-center mb-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-copy"
+            width="33"
+            height="33"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"
+            />
+            <path
+              d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"
+            />
+          </svg>
+          <h4 class="common-text mb-0">Similares</h4>
+        </div>
+        <div
+          *ngFor="let r of randomElements"
+          class="card mb-3"
+          style="max-width: 540px"
+        >
+          <div class="row g-0">
+            <div class="col-md-5 d-flex align-items-center">
+              <img
+                loading="lazy"
+                src="{{ r.image_principal }}"
+                class="img-fluid rounded-start w-100 img-similar"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class="card-title">{{ r.name }}</h5>
+                <p class="card-text">
+                  {{ r.price | currency : "MXN" }}
+                </p>
+                <p *ngIf="r.on_sale" class="card-text mb-0 text-onsale-2">
+                  <small class="">En venta</small>
+                </p>
+                <p *ngIf="!r.on_sale" class="card-text mb-0 text-onrent-2">
+                  <small class="">En renta</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!-- Section - aside-similares 2 ends -->
+
+      <section class="section-details col-12 col-sm-12 col-md-12 p-4 mt-4">
+        <div
+          class="d-flex align-items-center justify-content-between container-address-button"
+        >
+          <div class="d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-map-search"
+              width="33"
+              height="33"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#9e9e9e"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M11 18l-2 -1l-6 3v-13l6 -3l6 3l6 -3v8" />
+              <path d="M9 4v13" />
+              <path d="M15 7v5" />
+              <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+              <path d="M20.2 20.2l1.8 1.8" />
+            </svg>
+            <h4 class="common-text mb-0">Dirección</h4>
+          </div>
+          <a
+            class="link-maps d-flex align-items-center justify-content-center"
+            href="{{ located_building.link_map }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-google-maps"
+              width="33"
+              height="33"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#4081EC"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 9.5m-2.5 0a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0" />
+              <path d="M6.428 12.494l7.314 -9.252" />
+              <path d="M10.002 7.935l-2.937 -2.545" />
+              <path d="M17.693 6.593l-8.336 9.979" />
+              <path
+                d="M17.591 6.376c.472 .907 .715 1.914 .709 2.935a7.263 7.263 0 0 1 -.72 3.18a19.085 19.085 0 0 1 -2.089 3c-.784 .933 -1.49 1.93 -2.11 2.98c-.314 .62 -.568 1.27 -.757 1.938c-.121 .36 -.277 .591 -.622 .591c-.315 0 -.463 -.136 -.626 -.593a10.595 10.595 0 0 0 -.779 -1.978a18.18 18.18 0 0 0 -1.423 -2.091c-.877 -1.184 -2.179 -2.535 -2.853 -4.071a7.077 7.077 0 0 1 -.621 -2.967a6.226 6.226 0 0 1 1.476 -4.055a6.25 6.25 0 0 1 4.811 -2.245a6.462 6.462 0 0 1 1.918 .284a6.255 6.255 0 0 1 3.686 3.092z"
+              />
+            </svg>
+            <p class="mb-0 text-btn" style="color: #4081ec">
+              Ver en Google maps
+            </p></a
+          >
+        </div>
+        <hr />
+        <div class="container-description">
+          <div class="row extra-details">
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Dirección</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.ubication }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Código postal</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.postal_code }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Colonia</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ located_building.colony }}
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Ciudad</b></p>
+                <p class="mb-0 dynamic-text">{{ city.city }}</p>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-sm-12 col-md-6 d-flex align-items-center justify-content-between col-detail"
+            >
+              <div
+                class="d-flex align-items-center justify-content-between w-100 div-details"
+              >
+                <p class="mb-0 dynamic-text"><b>Estado</b></p>
+                <p class="mb-0 dynamic-text">
+                  {{ state.state }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section extra details 2 edns -->
+    </div>
+    <!-- Container details 2 ends -->
+  </div>
+</div>
+<!-- Footer start -->
+<footer>
+  <div class="container-footer">
+    <div class="d-flex row">
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">¿Quiénes somos?</p>
+        <p class="text-08r">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+          laboriosam, nulla accusamus nemo facere optio? Dolorum quo.
+        </p>
+      </div>
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">Contáctanos</p>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-map-pin icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path
+              d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+            />
+          </svg>
+          <p class="text-08r">
+            Av. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-phone icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+            />
+          </svg>
+          <p class="text-08r">(621) 754-754-7512</p>
+        </div>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-mail icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
+            />
+            <path d="M3 7l9 6l9 -6" />
+          </svg>
+          <p class="text-08r">lorem@gmail.com</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">Sede Monterrey</p>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-map-pin icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+            <path
+              d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+            />
+          </svg>
+          <p class="text-08r">
+            Av. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="d-flex gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-phone icon-w icon-footer"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
+            />
+          </svg>
+          <p class="text-08r">(621) 754-754-7512</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-12 txt-justify p-4">
+        <p class="text-1r">Aviso de privacidad</p>
+        <div class="div-social-media gap-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-youtube icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
+            />
+            <path d="M10 9l5 3l-5 3z" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-twitter icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-instagram icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
+            />
+            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M16.5 7.5l0 .01" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-brand-facebook icon-w"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#9e9e9e"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-end txt-center">
+    <div class="img-footer-logo">
+      <img
+        class="footer-logo"
+        src="../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+        alt=""
+      />
+    </div>
+    <div class="mr">
+      <p><small>2023 | Todos los derechos reservados</small></p>
+    </div>
+  </div>
+</footer>
