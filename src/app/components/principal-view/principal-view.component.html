@@ -1,12 +1,95 @@
 <section>
+  <div
+    #contact_list
+    class="container-wsp-contact-list row animate__animated animate__bounceInUp"
+  >
+    <div class="col-12 p-1 container-title-wsp">
+      <p class="text-1r mb-0 title-wsp">Nuestros asesores</p>
+    </div>
+    <div class="container-contacts col-12">
+      <div class="row d-flex align-items-center justify-content-between">
+        <p class="col-8 mb-0 contact-wsp">Liliana María Herrera Martínez</p>
+        <svg
+          #wsp
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
+          width="50"
+          height="50"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#2DB146"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+          <path
+            d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <!-- contact list ends-->
+  <div
+    #wsp_container
+    class="btn-wsp animate__animated animate__bounceInUp animate__delay-3s"
+    (click)="showContactList()"
+  >
+    <svg
+      #wsp
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-brand-whatsapp icon-popup-wsp"
+      width="45"
+      height="45"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#2DB146"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+      <path
+        d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+      />
+    </svg>
+  </div>
+  <!--  -->
+  <div
+    #wsp_container_2
+    class="btn-wsp animate__animated wsp-container-2"
+    (click)="closeContactList()"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-x"
+      width="45"
+      height="45"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#00b341"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 6l-12 12" />
+      <path d="M6 6l12 12" />
+    </svg>
+  </div>
+  <!-- wsp buttons
+  ends -->
   <div class="container-nav" style="width: 100%">
     <nav #navbar_menu class="navbar-navbar bg-gray" style="width: 100%">
       <div class="li-logo-nav">
         <a class="nav-logo" routerLink="/principal"
           ><img
             class="logo-w"
-            src="../../../assets/src/images/RECOVE_RECOVE_B_T.webp"
-            alt=""
+            src="../../../assets/src/images/altagama_01.webp"
+            alt="Altagama"
             loading="lazy"
         /></a>
         <div class="icon-close">
@@ -19,7 +102,7 @@
             height="36"
             viewBox="0 0 24 24"
             stroke-width="1.5"
-            stroke="#ffffff"
+            stroke="#142938"
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -50,7 +133,7 @@
         height="36"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="#ffffff"
+        stroke="#142938"
         fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -62,9 +145,10 @@
       </svg>
     </div>
   </div>
+
   <!-- div navbar responsive ends -->
   <div class="container-splash">
-    <carousel [isAnimated]="true">
+    <!-- <carousel [isAnimated]="true">
       <slide *ngFor="let slide of slides" style="background-color: aqua">
         <img
           src="{{ slide.src }}"
@@ -73,22 +157,109 @@
           loading="lazy"
         />
       </slide>
-    </carousel>
-    <!-- <img
-      class="img-splash"
-      src="../../../assets/src/images/splash/SLIDER_T.webp"
-      alt=""
-    /> -->
-    <!-- <div
-      class="btn-question animate__animated animate__fadeInUp animate__delay-4s"
-    >
-      <a class="link-quest" type="button" href="#houses"
-        >¿Que estás buscando?</a
-      >
-    </div> -->
+    </carousel> -->
+    <div class="row" style="perspective: 3px; height: 90vh; padding-top: 1%">
+      <div *ngFor="let item of buildings" class="col-12 col-md-3 col-sm-6">
+        <div
+          class="container-bg-img parallax-bg"
+          style="background-image: url('{{ item.image }}');"
+        >
+          <div
+            class="text-content d-flex flex-column align-items-center justify-content-center"
+            routerLink="/{{ item.link }}"
+          >
+            <svg
+              *ngIf="item.name == 'Locales comerciales'"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-building-store icon-splash"
+              width="52"
+              height="52"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#fff"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 21l18 0" />
+              <path
+                d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"
+              />
+              <path d="M5 21l0 -10.15" />
+              <path d="M19 21l0 -10.15" />
+              <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+            </svg>
+            <!--  -->
+            <svg
+              *ngIf="item.name == 'Condominios'"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-building-community icon-splash"
+              width="52"
+              height="52"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#fff"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"
+              />
+              <path d="M13 7l0 .01" />
+              <path d="M17 7l0 .01" />
+              <path d="M17 11l0 .01" />
+              <path d="M17 15l0 .01" />
+            </svg>
+            <!--  -->
+            <svg
+              *ngIf="item.name == 'Terrenos'"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-building-warehouse icon-splash"
+              width="52"
+              height="52"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#fff"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 21v-13l9 -4l9 4v13" />
+              <path d="M13 13h4v8h-10v-6h6" />
+              <path d="M13 21v-9a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v3" />
+            </svg>
+            <!--  -->
+            <svg
+              *ngIf="item.name == 'Casas'"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-home icon-splash"
+              width="52"
+              height="52"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#fff"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            <!--  -->
+            <p class="text-1_5r">{{ item.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- div splash ends -->
-  <div class="div-container-seeker">
+  <!--  <div class="div-container-seeker">
     <h1 class="">¿Que buscas?</h1>
     <form action="" class="row">
       <div class="div-select col-12 col-md-3">
@@ -122,7 +293,7 @@
         <button class="btn-search" type="button">Buscar</button>
       </div>
     </form>
-  </div>
+  </div> -->
   <!-- Section seeker ends -->
 
   <div class="container-storage">
@@ -132,7 +303,7 @@
         class="icon icon-tabler icon-tabler-building-estate"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="#9e9e9e"
+        stroke="#62707A"
         fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -175,7 +346,7 @@
           <p class="text-storage">Ver más</p>
         </div>
 
-        <a href="" class="link-detail">
+        <a routerLink="/{{ building.link }}" class="link-detail">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-square-plus"
@@ -209,7 +380,7 @@
         class="icon icon-tabler icon-tabler-urgent"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="#9e9e9e"
+        stroke="#62707A"
         fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -225,67 +396,79 @@
     </div>
 
     <div
-      *ngFor="let b of recently_buildings"
-      data-aos="flip-left"
+      *ngFor="let b of newRecentBuildings"
+      data-aos="fade-up"
       data-aos-easing="linear"
       data-aos-duration="1000"
       class="card-building card bg-dark text-white col-md-4 col-sm-6 col-12 mask1"
     >
       <div class="container-card-building">
-        <img src="{{ b.image }}" class="card-img" alt="..." loading="lazy" />
+        <img
+          src="{{ b.image_principal }}"
+          class="card-img"
+          alt="..."
+          loading="lazy"
+        />
         <div class="card-img-overlay card-over">
           <h5 class="card-title card-name">{{ b.name }}</h5>
           <p class="card-text card-price">
             {{ b.price | currency : "MXN" }}
           </p>
-          <div *ngIf="b.venta" class="container-tag">
+          <div *ngIf="b.on_sale" class="container-tag">
             <div class="card-tag">
               <p class="card-text">Venta</p>
             </div>
             <div class="card-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-square-rounded-arrow-right card-icon-arrow"
-                width="36"
-                height="36"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 16l4 -4l-4 -4" />
-                <path d="M8 12h8" />
-                <path
-                  d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
-                />
-              </svg>
+              <a [routerLink]="['/detail-house', b.building_type, b.id]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-square-rounded-arrow-right card-icon-arrow"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 16l4 -4l-4 -4" />
+                  <path d="M8 12h8" />
+                  <path
+                    d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
-          <div *ngIf="!b.venta" class="container-tag">
+          <div *ngIf="!b.on_sale" class="container-tag">
             <div class="card-tag">
               <p class="card-text">Renta</p>
             </div>
             <div class="card-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-square-rounded-arrow-right card-icon-arrow"
-                width="36"
-                height="36"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+              <a
+                [routerLink]="['/detail-house', b.building_type, b.id]"
+                (click)="click()"
               >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 16l4 -4l-4 -4" />
-                <path d="M8 12h8" />
-                <path
-                  d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
-                />
-              </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-square-rounded-arrow-right card-icon-arrow"
+                  width="36"
+                  height="36"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M12 16l4 -4l-4 -4" />
+                  <path d="M8 12h8" />
+                  <path
+                    d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -300,7 +483,7 @@
         class="icon icon-tabler icon-tabler-cash"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="#9e9e9e"
+        stroke="#62707A"
         fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -325,14 +508,14 @@
         [indicatorsByChunk]="true"
       >
         <slide
-          *ngFor="let condo of recently_buildings"
+          *ngFor="let condo of condos"
           class="slide-condo"
           data-aos="zoom-out-left"
           data-aos-duration="1000"
         >
           <div class="img-slide">
             <img
-              src="{{ condo.image }}"
+              src="{{ condo.image_principal }}"
               alt="first slide"
               style="display: block; width: 100%"
               loading="lazy"
@@ -347,57 +530,76 @@
             <p class="text-1_2r card-condo-price">
               {{ condo.price | currency : "MXN" }}
             </p>
-            <div *ngIf="condo.venta" class="container-tag container-tag-condo">
+            <div
+              *ngIf="condo.on_sale"
+              class="container-tag container-tag-condo"
+            >
               <div class="card-tag-condo">
                 <p class="card-text text-sell">Venta</p>
               </div>
               <div class="card-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-square-arrow-right"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#fff"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                <a
+                  [routerLink]="[
+                    '/detail-house',
+                    condo.building_type,
+                    condo.id
+                  ]"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M12 16l4 -4l-4 -4" />
-                  <path d="M8 12h8" />
-                  <path
-                    d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-square-arrow-right"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 16l4 -4l-4 -4" />
+                    <path d="M8 12h8" />
+                    <path
+                      d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
             <!-- if -->
-            <div *ngIf="!condo.venta" class="container-tag">
+            <div *ngIf="!condo.on_sale" class="container-tag">
               <div class="card-tag-condo">
                 <p class="card-text text-sell">Renta</p>
               </div>
               <div class="card-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-square-arrow-right"
-                  width="36"
-                  height="36"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="#fff"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                <a
+                  [routerLink]="[
+                    '/detail-house',
+                    condo.building_type,
+                    condo.id
+                  ]"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M12 16l4 -4l-4 -4" />
-                  <path d="M8 12h8" />
-                  <path
-                    d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-square-arrow-right"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 16l4 -4l-4 -4" />
+                    <path d="M8 12h8" />
+                    <path
+                      d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -406,7 +608,8 @@
       <!-- carousel 1  ends -->
       <carousel [isAnimated]="true" class="carousel-condo-2">
         <slide
-          *ngFor="let condo of recently_buildings; mask1: slide - condo - 2"
+          *ngFor="let condo of recently_buildings"
+          class="mask1 slide-condo-2"
         >
           <img
             class="img-condo-slide"
@@ -426,6 +629,65 @@
     </div>
   </div>
   <!-- Condos ends -->
+
+  <!--  <div class="container-team row d-flex justify-content-center">
+    <div class="container text-center mt-4" data-aos="zoom-in-up">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-users-group"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#9e9e9e"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" />
+        <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M17 10h2a2 2 0 0 1 2 2v1" />
+        <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M3 13v-1a2 2 0 0 1 2 -2h2" />
+      </svg>
+      <p class="text-2r" data-aos="zoom-in-down">Nuestro equipo</p>
+    </div>
+    <swiper class="swiper" [config]="config" data-swiper-autoplay="2000">
+      <ng-template *ngFor="let slide of recently_buildings" swiperSlide
+        ><img
+          class="img-swiper br-img-1"
+          style="background-color: aqua; width: 100%; height: 50vh"
+          loading="lazy"
+          src="{{ slide.image }}"
+      /></ng-template>
+    </swiper>
+    <div class="container text-center mt-4 mb-4">
+      <p class="text-2r" data-aos="zoom-in-down">
+        Comunícate con alguno de nuestros asesores para brindarte una atención
+        especializada.
+      </p>
+    </div>
+   
+      [itemsPerSlide]="itemsPerSlide"
+      [singleSlideOffset]="false"
+      [interval]="3000"
+      [indicatorsByChunk]="true"
+      [isAnimated]="true"
+    >
+      <slide
+        *ngFor="let condo of recently_buildings; let index = index"
+        style="background-color: blueviolet"
+      >
+        <img
+          [src]="condo.image"
+          alt="image slide"
+          style="display: block; width: 100%; border: 2px salmon solid"
+        />
+        <div class="carousel-caption">
+          <h4>Slide {{ index }}</h4>
+        </div>
+      </slide>
+   </div> -->
 </section>
 <!-- <carousel [isAnimated]="true">
   <slide *ngFor="let slide of slides" style="background-color: aqua">
@@ -641,7 +903,7 @@
     <div class="img-footer-logo">
       <img
         class="footer-logo"
-        src="../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+        src="../../../assets/src/images/altagama_01.webp"
         alt=""
       />
     </div>

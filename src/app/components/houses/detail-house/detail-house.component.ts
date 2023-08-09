@@ -8,8 +8,10 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 /* Services */
 import { HouseService } from 'src/app/shared/services/house.service';
 import { StateService } from 'src/app/shared/services/state.service';
+import { HelperService } from 'src/app/shared/services/helper.service';
 /* Models */
 import { City, State } from 'src/app/shared/models/state.model';
+import { Helper } from 'src/app/shared/models/helper.model';
 
 @Component({
   selector: 'app-detail-house',
@@ -31,12 +33,16 @@ export class DetailHouseComponent implements OnInit {
   state!: State;
   city!: City;
   randomElements: Building[] = [];
+  helpers: Helper[] = [];
+  helper!: Helper;
 
   @ViewChild('icon_nav_2') icon_nav_2!: ElementRef
   @ViewChild('navbar_menu') navbar_menu!: ElementRef
   @ViewChild('div_close') div_close!: ElementRef
 
-  constructor(private renderer: Renderer2, private _route: ActivatedRoute, private _stateService: StateService, private _houseService: HouseService, private formBuilder: FormBuilder) { }
+  constructor(private renderer: Renderer2, private _route: ActivatedRoute,
+    private _stateService: StateService, private _houseService: HouseService,
+    private formBuilder: FormBuilder, private helperService: HelperService) { }
 
   ngOnInit(): void {
     this.building_type = this._route.snapshot.paramMap.get("type")?.toLocaleLowerCase();
@@ -68,10 +74,21 @@ export class DetailHouseComponent implements OnInit {
 
   /* Function to look a building with url paramters recived to up in the UI */
   lookingBuilding() {
-    this.buildings = this._houseService.getAllHouses()
+    /* Get helpers of service */
+    this.helpers = this.helperService.getAllHelpers()
+    /* Get buildings of service */
+    this.buildings = this._houseService.getAllStorage()
+    this.buildings = this.buildings.filter(b => b.available)
     this.buildings.map(b => {
       //  console.log("Located B_ ", this.located_building);
       if (b.building_type == this.building_type && b.id == this.id_guest) {
+        /* Look helper */
+        this.helpers.forEach(h => {
+          if (b.agent === h.id) {
+            this.helper = h
+          }
+        });
+        /* override building */
         this.located_building = b;
         console.log("Located B_ ", this.located_building.agent);
         this.state = this._stateService.searchState(b.state);

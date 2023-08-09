@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "swiper/swiper.min.css";
+@import "swiper/modules/pagination/pagination.min.css";
+@import "swiper/modules/navigation/navigation.min.css";
 html,
 body {
     height: 100%;
