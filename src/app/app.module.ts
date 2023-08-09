@@ -11,6 +11,13 @@ import { HousesComponent } from './components/houses/houses.component';
 import { CondosComponent } from './components/condos/condos.component';
 import { DetailHouseComponent } from './components/houses/detail-house/detail-house.component';
 import { DetailCondoComponent } from './components/condos/detail-condo/detail-condo.component';
+import { LandsComponent } from './components/lands/lands.component';
+import { ShopsComponent } from './components/shops/shops.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+
+import { SwiperModule } from 'swiper/angular';
+import { OurTeamComponent } from './components/our-team/our-team.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +27,11 @@ import { DetailCondoComponent } from './components/condos/detail-condo/detail-co
     CondosComponent,
     DetailHouseComponent,
     DetailCondoComponent,
+    LandsComponent,
+    ShopsComponent,
+    ProjectsComponent,
+    OurTeamComponent,
+    NotFoundComponent,
 
   ],
   imports: [
@@ -28,7 +40,8 @@ import { DetailCondoComponent } from './components/condos/detail-condo/detail-co
     CarouselModule.forRoot(),
     PaginationModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

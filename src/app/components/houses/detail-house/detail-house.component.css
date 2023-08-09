@@ -37,7 +37,7 @@
 }
 
 .bg-gray {
-  background-color: #797979;
+  background-color: #fffaf1;
 }
 
 .logo-w {
@@ -74,7 +74,7 @@
 }
 
 .link-quest {
-  color: #fff;
+  color: #142938;
   text-underline-offset: var(--offset, 0.2em);
   text-decoration: underline 0.15em;
   text-decoration-color: transparent;
@@ -84,7 +84,7 @@
 .link-quest:is(:hover, :focus) {
   --offset: 0.4em;
   /* text-decoration: underline; */
-  text-decoration-color: #fff;
+  text-decoration-color: #142938;
 }
 
 @supports not (background: paint(something)) {
@@ -207,6 +207,10 @@
   border-right: 2px solid #c2c2c2;
 }
 
+.card-helper {
+  width: 100%
+}
+
 /* Details 2 */
 .info-details {
   /* display: table; */
@@ -311,7 +315,7 @@
 /* Footer */
 .container-footer {
   padding: 5%;
-  background-color: #3f3f3f;
+  background-color: #253846;
   color: #fff;
 }
 
@@ -476,13 +480,17 @@
     width: 8% !important;
   }
 
-  .section-details{
+  .section-details {
     margin-bottom: 5%;
   }
 
   /* details 2 (similares) */
   .aside-details {
     text-align: -webkit-center;
+  }
+
+  .card-helper {
+    width: 50%;
   }
 }
 
@@ -494,7 +502,7 @@
   }
 
   /* carousel img */
-  .container-carousel{
+  .container-carousel {
     height: 50vh;
   }
 
@@ -511,6 +519,10 @@
   .icon-tabler-text-plus {
     width: 7%;
   }
+
+  .card-helper {
+    width: 75%
+  }
 }
 
 
@@ -522,7 +534,7 @@
   }
 
   /* Details 2 (emailjs) */
-  .text-btn{
+  .text-btn {
     font-size: 0.8rem;
   }
 
@@ -532,16 +544,25 @@
   }
 }
 
-@media (max-width: 395px) { 
-    /* Details 2 (emailjs) */
-  .text-btn{
+@media (max-width: 395px) {
+  .container-principal {
+    padding-top: 30%;
+  }
+
+  /* Details 2 (emailjs) */
+  .text-btn {
     font-size: 0.6rem;
   }
-   /* details 1 */
+
+  /* details 1 */
   .icon-tabler-file-description {
     width: 10%;
   }
- }
+
+  .card-helper {
+    width: 100%
+  }
+}
 
 @media (max-width: 340px) {
 
@@ -549,32 +570,37 @@
   .logo-w {
     width: 145%;
   }
+
   /*details1 (address)*/
-  .container-address-button{
+  .container-address-button {
     display: block !important;
   }
+
   .icon-tabler-map-search {
     width: 12%;
   }
+
   /* Details 2 (emailjs) */
-  .text-btn{
+  .text-btn {
     font-size: 0.8rem;
   }
 
   .icon-tabler-text-plus {
     width: 15%;
   }
-  .dynamic-text{
+
+  .dynamic-text {
     font-size: 0.8rem;
   }
 }
 
-@media (max-width: 290px) { 
-    .dynamic-text{
-      font-size: 0.7rem;
-    }
-     /* details 1 */
+@media (max-width: 290px) {
+  .dynamic-text {
+    font-size: 0.7rem;
+  }
+
+  /* details 1 */
   .icon-tabler-file-description {
     width: 15% !important;
   }
- }
+}

@@ -10,11 +10,12 @@ import { City, State } from 'src/app/shared/models/state.model';
 import * as AOS from 'aos';
 
 @Component({
-  selector: 'app-houses',
-  templateUrl: './houses.component.html',
-  styleUrls: ['./houses.component.css']
+  selector: 'app-shops',
+  templateUrl: './shops.component.html',
+  styleUrls: ['./shops.component.css']
 })
-export class HousesComponent implements OnInit {
+export class ShopsComponent implements OnInit {
+
   /* Variables */
   buildings: Building[] = []
   slicedArrBuildings: Building[] = [];
@@ -64,9 +65,8 @@ export class HousesComponent implements OnInit {
   }
 
   getBuildings() {
-    this.buildings = this.houseService.getAllHouses();
+    this.buildings = this.houseService.getAllShops();
     this.buildings = this.buildings.filter(b => b.available)
-
     this.slicedArrBuildings = this.buildings.slice(0, 9)
     if (this.buildings.length == 0) {
       this.notFound = true
@@ -176,8 +176,6 @@ export class HousesComponent implements OnInit {
   }
 
   searchBuildings() {
-
-
     if (this.speciaCityId != undefined) {
       this.slicedArrBuildings = this.cityBuildings.filter(b => b.on_sale == this.typeSelected && b.city == this.speciaCityId)
       this.buildings = this.slicedArrBuildings
@@ -190,12 +188,6 @@ export class HousesComponent implements OnInit {
       this.buildings = this.slicedArrBuildings
       console.log("event search_ ", this.slicedArrBuildings);
       console.log("citi buildings_ 3 ", this.cityBuildings);
-    }
-    /* storage exist */
-    if (this.slicedArrBuildings.length == 0) {
-      this.notFound = true
-      console.log(this.notFound);
-
     }
   }
 
@@ -239,5 +231,4 @@ export class HousesComponent implements OnInit {
 
 
   }
-
 }

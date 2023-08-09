@@ -1,0 +1,617 @@
+.text-white {
+  color: #fff;
+}
+
+.row {
+  --bs-gutter-x: 0;
+}
+
+.carousel-condo-2 {
+  display: none;
+}
+
+:root {
+  --swiper-theme-color: #000;
+}
+
+/* whatsapp list - button */
+.container-wsp-contact-list {
+  display: none;
+  position: fixed;
+  width: 15%;
+  bottom: 12%;
+  right: 1.5%;
+  z-index: 4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.container-title-wsp {
+  background-color: #075E55;
+  border-bottom: 3px solid #fff;
+  padding: 0.3%;
+  border-radius: 6px 6px 0px 0px;
+}
+
+.title-wsp {
+  color: #fff;
+  font-weight: 400;
+}
+
+.container-contacts {
+  padding: 2%;
+}
+
+.contact-wsp {
+  color: #3f3f3f;
+  font-size: 0.8rem;
+}
+
+.wsp-icon-contact {
+  width: 13% !important;
+  height: auto;
+}
+
+.btn-wsp {
+  position: fixed;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 3%;
+  right: 1.5%;
+  z-index: 4;
+  border: 2px solid #2DB146;
+  border-radius: 50%;
+  padding: 0.5%;
+  background-color: #fff;
+
+}
+
+.wsp-container-2 {
+  display: none;
+}
+
+
+/* NAVBAR */
+.navbar-navbar {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 5px;
+  z-index: 5;
+  transition: 0.8s ease-in;
+}
+
+.div-nav-2 {
+  position: fixed;
+  width: 100%;
+  height: 72.5px;
+  z-index: 4;
+  /* estaba en 2 */
+  display: none;
+}
+
+.icon-tabler-menu-2 {
+  width: 35% !important;
+}
+
+.icon-close {
+  display: none;
+}
+
+.bg-gray {
+  background-color: #fffaf1;
+  /* F5F0E8 */
+}
+
+.logo-w {
+  width: 47%;
+}
+
+.li-logo-nav {
+  /*  width: 20%; */
+  text-align: center;
+  width: auto;
+}
+
+.links {
+  /* width: 60%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3%;
+}
+
+/* 
+.div-social-media {
+    background-color: chartreuse;
+    display: flex;
+    align-items: center;
+} */
+
+.icon {
+  width: 90%;
+  cursor: pointer;
+}
+
+.container-icon {
+  margin-right: 5%;
+}
+
+.icon-splash:is(:active, :focus) {
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+@property --offset {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.link-quest {
+  color: #142938;
+  text-underline-offset: var(--offset, 0.2em);
+  text-decoration: underline 0.15em;
+  text-decoration-color: transparent;
+  transition: --offset 400ms, text-decoration-color 400ms;
+}
+
+.link-quest:is(:hover, :focus) {
+  --offset: 0.4em;
+  /* text-decoration: underline; */
+  text-decoration-color: #142938;
+}
+
+@supports not (background: paint(something)) {
+  .link-quest {
+    transition: text-underline-offset 400ms, text-decoration-color 400ms;
+  }
+
+  .link-quest:hover,
+  .link-quest:focus {
+    text-underline-offset: 0.4em;
+  }
+}
+
+/* Container team */
+.container-team {
+  padding: 5% 0%;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("../../../assets/src/images/teamexamp.webp");
+
+  /* Set a specific height */
+  height: 100vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-mision-2{
+  /* The image used */
+  background-image: url("../../../assets/src/images/misionwebp.webp");
+
+  /* Set a specific height */
+  height: 50vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-text-parallax {
+  height: 100vh;
+  background-color: #dadada93;
+  color: #2C3F4C;
+}
+
+.title-team {
+  font-size: 4rem;
+  /* font-weight: 500; */
+}
+
+.subcontainer-team {
+  padding: 0%;
+}
+/* vision */
+.container-text-vision-responsive{
+  display: none !important;
+}
+.text-mision-vision{
+  font-size: 1.2rem;
+}
+
+.container-mision {
+  color: #2C3F4C;
+}
+
+.parallax-vision {
+  /* The image used */
+  background-image: url("../../../assets/src/images/visionwebp.webp");
+
+  /* Set a specific height */
+  height: 100vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat-x;
+  background-position: 0%;
+}
+
+.container-text-mision,
+.container-text-vision {
+  padding: 2%;
+}
+
+.container-text-mision{
+    background-color: #ffeecf
+}
+.container-text-vision{
+    background-color: #fff;
+    color: #b98f47;
+}
+.title-mision, .title-vision, .title-values{
+    font-weight: 600;
+}
+
+/* values */
+.swiper-values-list{
+  display:none !important;
+}
+.container-values-text{
+    padding:0% 2%;
+}
+.values-text{
+  font-size: 1.5rem;
+}
+.text-value{
+  font-size: 1.2rem;
+}
+.container-values{
+    padding: 4% 0%;
+    color: #2C3F4C;
+}
+.container-values-list{
+    background-color: #2c3f4c;
+    /* 2c3f4c */
+    width: 100%;
+    color: #fff;
+    padding: 0% 2%;
+    height: 204;
+}
+
+.container-value{
+    padding: 0.5%;
+    /* height: 5%; */
+}
+.subcontainer-value{
+    height: 95%;
+    padding: 3%;
+    /* border-radius: 8px;
+    background-color: #334b5a;
+    box-shadow: -1px 36px 37px -12px rgba(25,25,25,0.75);
+-webkit-box-shadow: -1px 36px 37px -12px rgba(25,25,25,0.75);
+-moz-box-shadow: -1px 36px 37px -12px rgba(25,25,25,0.75); */
+    /* box-shadow: -1px 36px 61px -13px rgba(25,25,25,0.75);
+    -webkit-box-shadow: -1px 36px 61px -13px rgba(25,25,25,0.75);
+    -moz-box-shadow: -1px 36px 61px -13px rgba(25,25,25,0.75); */
+}
+.value{
+    border-bottom: 2px solid #fff;
+    margin-bottom: 5%;
+}
+
+.icon-tabler-bookmark{
+    width: 15%;
+}
+
+/* Team */
+.container-team{
+    color: #2c3f4c;
+}
+.title-team{
+    font-weight: 600;
+}
+.img-ceo{
+    width: 15%;
+    border-radius: 8px;
+}
+
+.swiper-display-helpers-2{
+  display: none;
+}
+
+/* Helpers card*/
+.card-text-state{
+  height: 10vh;
+}
+
+
+
+
+/* Footer */
+.container-footer {
+  padding: 5%;
+  background-color: #253846;
+  color: #fff;
+}
+
+.icon-w {
+  width: 11%;
+}
+
+.footer-end {
+  background-color: #f1f1f1;
+}
+
+.footer-logo {
+  width: 25%;
+}
+
+.div-social-media {
+  display: flex;
+  align-items: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1190px) {
+
+}
+
+@media (max-width: 992px) {
+
+  .card-tag,
+  .card-tag-condo {
+    width: 39%;
+  }
+
+  /* NAVBAR */
+  .navbar-navbar {
+    display: block;
+    height: 100vh;
+    transform: translateX(-100%);
+  }
+
+  .icon-close {
+    display: flex;
+  }
+
+  .div-nav-2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .links {
+    /* width: 60%; */
+    display: inline-grid;
+    padding: 3%;
+    row-gap: 2rem;
+  }
+
+  .li-logo-nav {
+    text-align: start;
+    width: 100%;
+    padding: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .div-social-media {
+    width: 100%;
+  }
+
+  .icon {
+    width: 100%;
+  }
+
+  .logo-w {
+    width: 50%;
+  }
+
+  .nav-logo {
+    width: 50%;
+  }
+  /* Mision vision */
+  .text-mision-vision{
+    font-size: 1rem;
+  }
+
+  /* Values */
+  .container-value{
+    height: 55%;
+}
+  
+  /* Footer */
+  .icon-footer {
+    width: 10%;
+  }
+}
+
+@media (max-width: 850px) {
+
+  /* Navbar */
+  .links {
+    row-gap: 3rem;
+  }
+
+   /* Mision vision */
+   .text-mision-vision{
+    font-size: 0.8rem;
+  }
+
+  /* vision parallax - posiciona el background*/
+  .parallax-vision{
+    height: 50vh;
+/*     background-attachment: fixed;
+    background-position: center; */
+    background-repeat: no-repeat;
+    background-position: -35%;
+    background-size: 68%;
+  }
+
+  /* footer */
+  .footer-logo {
+    width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+
+  /* Navbar */
+  .logo-w {
+    width: 70%;
+  }
+
+  /* parallax vision - posicionamienton de background */
+  .parallax-vision{
+    height: 46vh;
+    background-position: -135%;
+    background-size: 84%;
+  }
+
+  /* Values */
+  .text-value{
+    font-size: 0.8rem;
+  }
+
+  /* team */
+  .img-ceo{
+    width: 25%;
+  }
+}
+@media (max-width: 696px) { 
+  /* mision vision */
+  .text-3r{
+    font-size: 1.5rem;
+  }
+    .img-mision{
+      display:none;
+    }
+    .container-text-mision{
+      width: 100%;
+    }
+    /* values */
+    .values-text{
+      font-size: 1rem;
+    }
+    .text-2r{
+      font-size: 1.5rem;
+    }
+    .img-ceo{
+      width: 40%;
+    }
+    .swiper-display{
+      display: none;
+    }
+    .swiper-display-helpers-2{
+      display: block;
+    }
+    .div-image-helper{
+      width: 50%;
+    }
+ }
+
+@media (max-width: 575px) {
+
+  /* Navbar */
+  .logo-w {
+    width: 90%;
+  }
+
+  .title-team {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  /* Vision */
+  .container-text-vision{
+    display: none !important;
+  }
+  .container-text-vision-responsive{
+    display: flex !important;
+    background-color: #0000009c;
+    padding: 2%;
+    color: #fff;
+  }
+  .parallax-vision {
+    /* Set a specific height */
+    height: 40vh;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+}
+
+@media (max-width: 569px) {}
+
+@media (max-width: 528px) {}
+
+@media (max-width: 480px) {
+
+  /* Navbar */
+  .logo-w {
+    width: 100%;
+  }
+
+  /* Values swiper */
+  .container-values{
+    padding: 0%;
+    margin-top: 13%;
+  }
+  .values-list{
+    display: none;
+  }
+  .swiper-values-list{
+    display:block !important;
+  }
+  .container-values-list{
+    height: 50vh;
+  }
+
+  /* Footer */
+  .footer-logo {
+    width: 80%;
+  }
+}
+
+@media (max-width: 400px) {}
+
+@media (max-width: 340px) {
+
+  /* Navbar */
+  .logo-w {
+    width: 145%;
+  }
+  /* vision */
+  .parallax-vision{
+    height: 52vh;
+  }
+}
+
+@media (max-width: 296px) {
+  .title-team{
+    font-size: 1.5rem;
+  }
+  /* values */
+  .container-values-list{
+    height: 55vh;
+  }
+}

@@ -10,6 +10,57 @@
   display: none;
 }
 
+ /* whatsapp list - button */
+ .container-wsp-contact-list{
+  display: none;
+  position: fixed;
+  width: 15%;
+  bottom: 12%;
+  right: 1.5%;
+  z-index: 4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+.container-title-wsp{
+  background-color: #075E55;
+  border-bottom: 3px solid #fff;
+  padding: 0.3%;
+  border-radius: 6px 6px 0px 0px;
+}
+.title-wsp{
+  color: #fff;
+  font-weight: 400;
+}
+.container-contacts{
+  padding: 2%;
+}
+.contact-wsp{
+  color: #3f3f3f;
+  font-size: 0.8rem;
+}
+.wsp-icon-contact{
+  width: 13% !important;
+  height: auto;
+}
+.btn-wsp{
+  position: fixed;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 3%;
+  right: 1.5%;
+  z-index: 4;
+  border: 2px solid #2DB146;
+  border-radius: 50%;
+  padding: 0.5%;
+  background-color: #fff;
+
+}
+.wsp-container-2{
+  display: none;
+}
+
 /* NAVBAR */
 .navbar-navbar {
   position: fixed;
@@ -37,7 +88,7 @@
 }
 
 .bg-gray {
-  background-color: #797979;
+  background-color: #fffaf1;
 }
 
 .logo-w {
@@ -87,7 +138,7 @@
 }
 
 .link-quest {
-  color: #fff;
+  color: #142938;
   text-underline-offset: var(--offset, 0.2em);
   text-decoration: underline 0.15em;
   text-decoration-color: transparent;
@@ -97,7 +148,7 @@
 .link-quest:is(:hover, :focus) {
   --offset: 0.4em;
   /* text-decoration: underline; */
-  text-decoration-color: #fff;
+  text-decoration-color: #142938;
 }
 
 @supports not (background: paint(something)) {
@@ -219,7 +270,7 @@
 /* Footer */
 .container-footer {
     padding: 5%;
-    background-color: #3f3f3f;
+    background-color: #253846;
     color: #fff;
   }
   

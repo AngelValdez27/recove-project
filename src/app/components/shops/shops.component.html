@@ -146,13 +146,8 @@ ends -->
     </div>
   </div>
   <!-- div navbar responsive ends -->
-
-  <div *ngIf="notFound == true">
-    <app-not-found></app-not-found>
-  </div>
-  <!-- not found ends -->
-  <div *ngIf="!notFound" class="row txt-center container-cards-houses">
-    <h1>Casas</h1>
+  <div class="row txt-center container-cards-houses">
+    <h1>Locales comerciales</h1>
     <p class="text-1r">Encuentra tu nuevo hogar</p>
     <!-- Seeker start -->
     <div class="div-container-seeker">
@@ -233,12 +228,10 @@ ends -->
       </form>
     </div>
     <!-- Section seeker ends -->
-    <!--  <div>not found</div> -->
-    <div *ngIf="notFound">
+    <div *ngIf="notFound == true">
       <app-not-found></app-not-found>
     </div>
     <!-- not found ends -->
-
     <div *ngIf="!notFound" class="col-xs-12 col-12">
       <div class="row animate__animated animate__backInUp animate__delay-1s">
         <div
@@ -396,11 +389,11 @@ ends -->
               <!-- Button 'ver' ends -->
             </div>
             <!-- <div class="card-body">
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div> -->
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div> -->
           </div>
           <!-- Cards general end -->
         </div>
@@ -418,9 +411,9 @@ ends -->
       >
       </pagination>
       <!--  <pagination [totalItems]="contentArray.length" (pageChanged)="pageChanged($event)"></pagination>
-          <pagination [boundaryLinks]="true" [totalItems]="77"
-          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
-  </pagination> -->
+            <pagination [boundaryLinks]="true" [totalItems]="77"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination> -->
     </div>
   </div>
   <!-- paginator - items ends -->

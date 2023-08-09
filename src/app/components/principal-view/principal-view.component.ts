@@ -1,5 +1,14 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+/* models */
+import { Building } from 'src/app/shared/models/building.model';
+/* Services */
+import { HouseService } from 'src/app/shared/services/house.service';
+/* swiper */
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, SwiperOptions, Swiper, EffectCube, EffectFade } from 'swiper';
+SwiperCore.use([Navigation, Pagination, EffectFade, A11y]);
+/* Libreries */
 import * as AOS from 'aos';
+
 
 @Component({
   selector: 'app-principal-view',
@@ -10,9 +19,29 @@ export class PrincipalViewComponent implements OnInit {
   @ViewChild('icon_nav_2') icon_nav_2!: ElementRef
   @ViewChild('navbar_menu') navbar_menu!: ElementRef
   @ViewChild('div_close') div_close!: ElementRef
+  @ViewChild('wsp_container') wsp_container!: ElementRef
+  @ViewChild('wsp_container_2') wsp_container_2!: ElementRef
+  @ViewChild('contact_list') contact_list!: ElementRef;
 
-  constructor(private renderer: Renderer2) { }
+  /* Variables */
+  buildingsArr: Building[] = []
+  newRecentBuildings: Building[] = []
+  condos: Building[] = []
+  constructor(private renderer: Renderer2, private houseService: HouseService) { }
   slides: any[] = new Array(3).fill({ id: -1, src: '', title: '', subtitle: '' });
+
+
+  config: SwiperOptions = {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 10,
+    navigation: true,
+    autoplay: {
+      delay: 2000
+    },
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
+  };
 
   itemsPerSlide = 3;
 
@@ -30,17 +59,28 @@ export class PrincipalViewComponent implements OnInit {
 
   buildings = [{
     id: '27',
-    name: 'Casas'
+    name: 'Casas',
+    link: 'houses',
+    image: '../../../assets/src/images/backgrounds/casabg.webp'
   }, {
     id: '18',
-    name: 'Condominios'
+    name: 'Condominios',
+    link: 'condos',
+    image: '../../../assets/src/images/backgrounds/casabg.webp'
+
   },
   {
     id: '1',
-    name: 'Terrenos'
+    name: 'Terrenos',
+    link: 'lands',
+    image: '../../../assets/src/images/backgrounds/casabg.webp'
+
   }, {
     id: '5',
-    name: 'Locales comerciales'
+    name: 'Locales comerciales',
+    link: 'shops',
+    image: '../../../assets/src/images/backgrounds/casabg.webp'
+
   }]
 
   recently_buildings = [{
@@ -100,6 +140,7 @@ export class PrincipalViewComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.getBuildings()
 
     /*  if (document.readyState == 'complete') {
        AOS.refresh();
@@ -127,7 +168,41 @@ export class PrincipalViewComponent implements OnInit {
     this.slides[2] = {
       src: '../../../assets/src/images/RECOVE_RECOVE_B_T.webp',
     }
+    this.slides[3] = {
+      src: '../../../assets/src/images/RECOVE_RECOVE_B_T.webp',
+    };
+    this.slides[4] = {
+      src: '../../../assets/src/images/RECOVE_RECOVE_N_T.webp',
+    }
+    this.slides[5] = {
+      src: '../../../assets/src/images/RECOVE_RECOVE_B_T.webp',
+    }
   }
+
+  getBuildings() {
+    this.buildingsArr = this.houseService.getAllStorage();
+    this.buildingsArr = this.buildingsArr.filter(b => b.available)
+    this.condos = this.houseService.getAllCondos()
+    this.condos = this.condos.filter(c => c.available)
+    // arrayTest = this.buildings
+    //arrayTest = arrayTest.at(-6)
+    //console.log("l ? ", arrayTest);
+    for (let index = 0; index < this.buildingsArr.length; index++) {
+      if (index > 0 && index < 7) {
+        this.newRecentBuildings.push(this.buildingsArr[this.buildingsArr.length - index])
+      }
+
+      /* if (index == 6) {
+        this.buildingsArr = this.buildingsArr.reverse().slice(0, index)
+      } */
+    }
+  }
+
+  click() {
+    console.log("click");
+
+  }
+
 
 
   showMenu() {
@@ -147,6 +222,47 @@ export class PrincipalViewComponent implements OnInit {
     this.renderer.addClass(this.icon_nav_2.nativeElement, 'animate__bounceIn')
     this.renderer.removeClass(this.div_close.nativeElement, 'animate__zoomIn');
     this.renderer.addClass(this.div_close.nativeElement, 'animate__zoomOut');
+  }
+
+  /* whats app functions */
+  showContactList() {
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__delay-3s')
+    //this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__rotateIn')
+    this.renderer.addClass(this.wsp_container.nativeElement, 'animate__rotateOut')
+    this.renderer.setStyle(this.wsp_container.nativeElement, 'display', 'none')
+
+    this.renderer.setStyle(this.wsp_container_2.nativeElement, 'display', 'flex')
+    this.renderer.removeClass(this.wsp_container_2.nativeElement, 'animate__rotateOut')
+    this.renderer.addClass(this.wsp_container_2.nativeElement, 'animate__rotateIn')
+
+    this.renderer.setStyle(this.contact_list.nativeElement, 'display', 'block')
+    //this.renderer.removeClass(this.contact_list.nativeElement, 'animate__delay-1s')
+    this.renderer.removeClass(this.contact_list.nativeElement, 'animate__bounceOutDown')
+    this.renderer.addClass(this.contact_list.nativeElement, 'animate__bounceInUp')
+  }
+
+  closeContactList() {
+    //this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    //this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    // this.renderer.removeStyle(this.wsp_container.nativeElement, 'display')
+    this.renderer.addClass(this.contact_list.nativeElement, 'animate__bounceOutDown')
+    this.renderer.removeClass(this.contact_list.nativeElement, 'animate__bounceInUp')
+    // this.renderer.setProperty(this.contact_list.nativeElement, '--animate-duration', '1.3s')
+    // this.renderer.addClass(this.contact_list.nativeElement, 'animate__delay-1s')
+    this.renderer.setStyle(this.contact_list.nativeElement, 'display', 'none')
+    //this.renderer.setStyle(this.wsp_container_2.nativeElement, 'display', 'none')
+
+    this.renderer.removeClass(this.wsp_container_2.nativeElement, 'animate__rotateIn')
+    this.renderer.addClass(this.wsp_container_2.nativeElement, 'animate__rotateOut')
+    this.renderer.setStyle(this.wsp_container_2.nativeElement, 'display', 'none')
+
+    this.renderer.setStyle(this.wsp_container.nativeElement, 'display', 'flex')
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__rotateOut')
+    this.renderer.addClass(this.wsp_container.nativeElement, 'animate__rotateIn')
+
+
   }
 
 }

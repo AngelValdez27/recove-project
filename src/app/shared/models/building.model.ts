@@ -17,7 +17,7 @@ export interface Building {
     postal_code?: number;
     state: number;
     city: number;
-    agent?: string | null;
+    agent?: number | null;
     image_principal?: string;
     images?: {
         src: string,

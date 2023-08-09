@@ -26,7 +26,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 3,
-        agent: "NA",
+        agent: 1,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -56,7 +56,7 @@ export class HouseService {
         postal_code: 27569,
         state: 1,
         city: 6,
-        agent: "NA",
+        agent: 2,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -69,7 +69,7 @@ export class HouseService {
         on_sale: false,
         available: true,
         community: false,
-        building_type: "casa",
+        building_type: "condominio",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       },
       {
@@ -88,7 +88,7 @@ export class HouseService {
         postal_code: 27569,
         state: 1,
         city: 7,
-        agent: "angelvaldezn09@gmail.com",
+        agent: 3,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -120,7 +120,7 @@ export class HouseService {
         postal_code: 27569,
         state: 3,
         city: 1,
-        agent: "NA",
+        agent: 4,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -133,7 +133,7 @@ export class HouseService {
         on_sale: true,
         available: true,
         community: false,
-        building_type: "casa",
+        building_type: "local",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       },
       {
@@ -152,7 +152,7 @@ export class HouseService {
         postal_code: 27569,
         state: 3,
         city: 2,
-        agent: "NA",
+        agent: 5,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -165,7 +165,7 @@ export class HouseService {
         on_sale: true,
         available: true,
         community: false,
-        building_type: "casa",
+        building_type: "condominio",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       },
       {
@@ -184,7 +184,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 3,
-        agent: "NA",
+        agent: 6,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -197,7 +197,7 @@ export class HouseService {
         on_sale: true,
         available: true,
         community: true,
-        building_type: "casa",
+        building_type: "condominio",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       },
       {
@@ -216,7 +216,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 4,
-        agent: "NA",
+        agent: 1,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -229,7 +229,7 @@ export class HouseService {
         on_sale: false,
         available: true,
         community: true,
-        building_type: "casa",
+        building_type: "condominio",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       },
       {
@@ -248,7 +248,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 5,
-        agent: "NA",
+        agent: 2,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -280,7 +280,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 3,
-        agent: "NA",
+        agent: 3,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -312,7 +312,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 4,
-        agent: "NA",
+        agent: 4,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -344,7 +344,7 @@ export class HouseService {
         postal_code: 27569,
         state: 2,
         city: 3,
-        agent: "angelvaldezn09@gmail.com",
+        agent: 5,
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
@@ -357,13 +357,28 @@ export class HouseService {
         on_sale: true,
         available: true,
         community: true,
-        building_type: "condominio",
+        building_type: "casa",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       }
     ];
   }
 
-  getAllHouses() {
+  getAllStorage() {
     return this.houses
+  }
+  getAllHouses() {
+    return this.houses.filter(h => h.building_type == "casa")
+  }
+
+  getAllCondos() {
+    return this.houses.filter(h => h.building_type == "condominio")
+  }
+
+  getAllShops() {
+    return this.houses.filter(h => h.building_type == "local")
+  }
+
+  getAllLands() {
+    return this.houses.filter(h => h.building_type == "terreno")
   }
 }
