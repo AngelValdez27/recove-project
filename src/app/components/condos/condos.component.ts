@@ -21,6 +21,7 @@ export class CondosComponent implements OnInit {
   stateBuildings: Building[] = [];
   cityBuildings: Building[] = [];
   notFound = false
+  notFoundItems = false
 
   states!: State[];
   cities!: City[];
@@ -58,6 +59,7 @@ export class CondosComponent implements OnInit {
   constructor(private renderer: Renderer2, private houseService: HouseService, private stateService: StateService) { }
 
   ngOnInit(): void {
+    this.goToTop()
     this.states = this.stateService.getAllStates();
     this.cities = this.stateService.getAllCities();
     this.getBuildings()
@@ -187,6 +189,14 @@ export class CondosComponent implements OnInit {
       console.log("event search_ ", this.slicedArrBuildings);
       console.log("citi buildings_ 3 ", this.cityBuildings);
     }
+    /* storage exist */
+    if (this.slicedArrBuildings.length == 0) {
+      this.notFoundItems = true
+      console.log(this.notFoundItems);
+    } else {
+      this.notFoundItems = false
+
+    }
   }
 
   /* whats app functions */
@@ -226,8 +236,14 @@ export class CondosComponent implements OnInit {
     this.renderer.setStyle(this.wsp_container.nativeElement, 'display', 'flex')
     this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__rotateOut')
     this.renderer.addClass(this.wsp_container.nativeElement, 'animate__rotateIn')
+  }
 
-
+  goToTop(): void {
+    window.scroll({
+      top: 0,
+      //   left: 0,
+      behavior: 'smooth',
+    });
   }
 
 }

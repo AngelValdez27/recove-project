@@ -60,6 +60,9 @@
 .wsp-container-2{
   display: none;
 }
+.notFound{
+  padding-top: 15%;
+}
 
 /* NAVBAR */
 .navbar-navbar {

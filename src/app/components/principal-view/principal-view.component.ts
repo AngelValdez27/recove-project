@@ -140,6 +140,7 @@ export class PrincipalViewComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.goToTop()
     this.getBuildings()
 
     /*  if (document.readyState == 'complete') {
@@ -265,4 +266,11 @@ export class PrincipalViewComponent implements OnInit {
 
   }
 
+  goToTop(): void {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
 }

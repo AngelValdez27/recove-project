@@ -1,8 +1,9 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd, } from '@angular/router';
 import { Building } from 'src/app/shared/models/building.model';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 /* Services */
@@ -19,7 +20,8 @@ import { Helper } from 'src/app/shared/models/helper.model';
   styleUrls: ['./detail-house.component.css'],
   providers: [
     { provide: CarouselConfig, useValue: { interval: 1500 } }
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailHouseComponent implements OnInit {
   /* URL PARAMS */
@@ -40,11 +42,14 @@ export class DetailHouseComponent implements OnInit {
   @ViewChild('navbar_menu') navbar_menu!: ElementRef
   @ViewChild('div_close') div_close!: ElementRef
 
-  constructor(private renderer: Renderer2, private _route: ActivatedRoute,
+  constructor(private renderer: Renderer2, private router: Router, private _route: ActivatedRoute,
     private _stateService: StateService, private _houseService: HouseService,
     private formBuilder: FormBuilder, private helperService: HelperService) { }
 
   ngOnInit(): void {
+    this.goToTop()
+    this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
+
     this.building_type = this._route.snapshot.paramMap.get("type")?.toLocaleLowerCase();
     this.id_guest = this._route.snapshot.paramMap.get("id");
     console.log("param type_ ", this.building_type, this.id_guest);
@@ -101,9 +106,6 @@ export class DetailHouseComponent implements OnInit {
         console.log("random elemts_ ", this.randomElements);
       }
     })
-
-
-
   }
 
   /* Create form */
@@ -138,5 +140,23 @@ export class DetailHouseComponent implements OnInit {
       });
     this.resetForm()
   }
+
+  /* Refresh component */
+  refreshComponent(type?: string, id?: number): void {
+    /* this.building_type = type
+    this.id_guest = id
+    this.lookingBuilding() */
+    //this.router.onSameUrlNavigation
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
+  }
+
+  goToTop(): void {
+    window.scroll({
+      top: 0,
+
+      behavior: 'smooth',
+    });
+  }
+
 }
 
