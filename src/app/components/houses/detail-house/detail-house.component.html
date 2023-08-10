@@ -323,6 +323,7 @@
             src="{{ helper.image }}"
             class="card-img-top"
             alt="{{ helper.name }}"
+            loading="lazy"
           />
           <div class="card-body" style="background-color: #142938; color: #fff">
             <p class="card-text mb-0">Asesor encargado</p>
@@ -693,7 +694,11 @@
           class="card mb-3"
           style="max-width: 540px"
         >
-          <div class="row g-0">
+          <div
+            class="row g-0 container-random-element"
+            [routerLink]="['/detail-house', r.building_type, r.id]"
+            (click)="goToTop()"
+          >
             <div class="col-md-5 d-flex align-items-center">
               <img
                 loading="lazy"
@@ -1057,8 +1062,9 @@
     <div class="img-footer-logo">
       <img
         class="footer-logo"
-        src="../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+        src="../../../../assets/src/images/altagama_01.webp"
         alt=""
+        loading="lazy"
       />
     </div>
     <div class="mr">

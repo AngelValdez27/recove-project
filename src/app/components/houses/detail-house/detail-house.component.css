@@ -294,6 +294,10 @@
   height: 80%;
 }
 
+.container-random-element{
+  cursor: pointer;
+}
+
 /* Extra details 2 */
 .link-maps {
   text-decoration: none;

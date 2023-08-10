@@ -103,6 +103,7 @@ export class OurTeamComponent implements OnInit {
   constructor(private renderer: Renderer2, private helperService: HelperService, private stateService: StateService) { }
 
   ngOnInit(): void {
+    this.goToTop()
     AOS.init()
     window.addEventListener('load', AOS.refresh)
 
@@ -179,5 +180,12 @@ export class OurTeamComponent implements OnInit {
 
   }
 
+  goToTop(): void {
+    window.scroll({
+      top: 0,
+      //   left: 0,
+      behavior: 'smooth',
+    });
+  }
 
 }

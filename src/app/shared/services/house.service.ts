@@ -156,7 +156,7 @@ export class HouseService {
         image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "../../../assets/src/images/altagama_01.webp"
           },
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"

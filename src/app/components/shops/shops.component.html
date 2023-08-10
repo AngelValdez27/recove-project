@@ -146,229 +146,138 @@ ends -->
     </div>
   </div>
   <!-- div navbar responsive ends -->
+
   <div class="row txt-center container-cards-houses">
-    <h1>Locales comerciales</h1>
-    <p class="text-1r">Encuentra tu nuevo hogar</p>
-    <!-- Seeker start -->
-    <div class="div-container-seeker">
-      <h1 class="">¿Que buscas?</h1>
-      <form action="" class="row">
-        <div class="div-select col-12 col-md-2 offset-md-1">
-          <select
-            class="form-select select"
-            name="select1"
-            id="select1"
-            (change)="searchCity($event.target)"
-          >
-            <option class="option" value="" selected>- Estado -</option>
-            <option class="option" value="0">- Todos -</option>
-            <option [value]="s.id" *ngFor="let s of states">
-              {{ s.state }}
-            </option>
-          </select>
-        </div>
-
-        <div class="div-select col-12 col-md-2">
-          <select
-            class="form-select select"
-            name="select1"
-            id="select1"
-            [disabled]="selectorCity"
-            (change)="selectCity($event.target)"
-          >
-            <option class="option" value="0" selected>- Ciudad -</option>
-            <option [value]="c.id" *ngFor="let c of cities">
-              {{ c.city }}
-            </option>
-          </select>
-        </div>
-
-        <div class="div-select col-12 col-md-2">
-          <select
-            #selectTypeDom
-            class="form-select select"
-            name="select1"
-            id="select1"
-            (change)="selectType($event.target)"
-            [disabled]="selectorType"
-          >
-            <!--    -->
-            <option class="option" value="0" selected disabled>- Tipo -</option>
-            <option [value]="option.state" *ngFor="let option of types">
-              {{ option.name }}
-            </option>
-          </select>
-        </div>
-
-        <div class="div-select col-12 col-md-2">
-          <select
-            class="form-select select"
-            name="select1"
-            id="select1"
-            [ngClass]="selectorCitySpecial ? 'd-none' : 'd-flex'"
-            (change)="selectSpecialCity($event.target)"
-          >
-            <option class="option" value="" selected>- Entidad -</option>
-            <option [value]="sc.id" *ngFor="let sc of specialCities">
-              {{ sc.community }}
-            </option>
-          </select>
-        </div>
-
-        <div class="div-select div-btn col-12 col-md-2">
-          <button
-            (click)="searchBuildings()"
-            class="btn btn-search"
-            type="button"
-            [disabled]="buttonActive"
-          >
-            Buscar
-          </button>
-        </div>
-      </form>
-    </div>
-    <!-- Section seeker ends -->
+    <h1 class="text-blue-1">Locales comerciales</h1>
+    <p class="text-1r text-blue-1">Encuentra tu nuevo hogar</p>
     <div *ngIf="notFound == true">
       <app-not-found></app-not-found>
     </div>
     <!-- not found ends -->
-    <div *ngIf="!notFound" class="col-xs-12 col-12">
-      <div class="row animate__animated animate__backInUp animate__delay-1s">
-        <div
-          *ngFor="let b of slicedArrBuildings"
-          class="col-12 col-md-4 col-sm-6 d-flex justify-content-center mb-5"
-        >
-          <!-- card by id start -->
+    <div *ngIf="!notFound">
+      <!-- Seeker start -->
+      <div class="div-container-seeker">
+        <h1 class="text-blue-1">¿Que buscas?</h1>
+        <form action="" class="row">
+          <div class="div-select col-12 col-md-2 offset-md-1">
+            <select
+              class="form-select select"
+              name="select1"
+              id="select1"
+              (change)="searchCity($event.target)"
+            >
+              <option class="option" value="" selected>- Estado -</option>
+              <option class="option" value="0">- Todos -</option>
+              <option [value]="s.id" *ngFor="let s of states">
+                {{ s.state }}
+              </option>
+            </select>
+          </div>
 
-          <!-- Card by id ends -->
-          <!-- Cards general start -->
-          <div class="card container-card">
-            <img
-              src="{{ b?.image_principal }}"
-              loading="lazy"
-              class="card-img-top img-card"
-              alt="..."
-            />
-            <div class="container-info-card">
-              <div class="card-header">
-                <div>
-                  <p class="text-1_2r">{{ b?.name }}</p>
-                </div>
-                <div class="">
-                  <p>
-                    {{ b?.ubication }}
-                  </p>
-                </div>
-              </div>
+          <div class="div-select col-12 col-md-2">
+            <select
+              class="form-select select"
+              name="select1"
+              id="select1"
+              [disabled]="selectorCity"
+              (change)="selectCity($event.target)"
+            >
+              <option class="option" value="0" selected>- Ciudad -</option>
+              <option [value]="c.id" *ngFor="let c of cities">
+                {{ c.city }}
+              </option>
+            </select>
+          </div>
 
-              <div class="row mt-3 div-row-container-details-card pb-2">
-                <div
-                  class="col-6 col-md-4 col-sm-6 d-flex align-items-center justify-content-center col-detail"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-ruler-measure"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#9e9e9e"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                      d="M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75z"
-                    />
-                    <path d="M9 12v2" />
-                    <path d="M6 12v3" />
-                    <path d="M12 12v3" />
-                    <path d="M18 12v3" />
-                    <path d="M15 12v2" />
-                    <path d="M3 3v4" />
-                    <path d="M3 5h18" />
-                    <path d="M21 3v4" />
-                  </svg>
-                  <p class="m-0 text-detail">
-                    {{ b.area_total }}Mts.<sup>2</sup>
-                  </p>
-                </div>
-                <div
-                  class="col-6 col-md-4 col-sm-6 d-flex align-items-center justify-content-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-bed"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#9e9e9e"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6" />
-                    <path d="M7 10m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                  </svg>
-                  <p class="m-0 text-detail">
-                    {{ b.rooms }}
-                  </p>
-                </div>
-                <div
-                  class="col-6 col-md-4 col-sm-6 d-flex align-items-center justify-content-center"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-home-dollar"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="#9e9e9e"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19 10l-7 -7l-9 9h2v7a2 2 0 0 0 2 2h6" />
-                    <path
-                      d="M9 21v-6a2 2 0 0 1 2 -2h2c.387 0 .748 .11 1.054 .3"
-                    />
-                    <path
-                      d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"
-                    />
-                    <path d="M19 21v1m0 -8v1" />
-                  </svg>
-                  <div *ngIf="b?.on_sale">
-                    <p class="m-0 text-detail-v">En venta</p>
+          <div class="div-select col-12 col-md-2">
+            <select
+              #selectTypeDom
+              class="form-select select"
+              name="select1"
+              id="select1"
+              (change)="selectType($event.target)"
+              [disabled]="selectorType"
+            >
+              <!--    -->
+              <option class="option" value="0" selected disabled>
+                - Tipo -
+              </option>
+              <option [value]="option.state" *ngFor="let option of types">
+                {{ option.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="div-select col-12 col-md-2">
+            <select
+              class="form-select select"
+              name="select1"
+              id="select1"
+              [ngClass]="selectorCitySpecial ? 'd-none' : 'd-flex'"
+              (change)="selectSpecialCity($event.target)"
+            >
+              <option class="option" value="" selected>- Entidad -</option>
+              <option [value]="sc.id" *ngFor="let sc of specialCities">
+                {{ sc.community }}
+              </option>
+            </select>
+          </div>
+
+          <div class="div-select div-btn col-12 col-md-2">
+            <button
+              (click)="searchBuildings()"
+              class="btn btn-search"
+              type="button"
+              [disabled]="buttonActive"
+            >
+              Buscar
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Section seeker ends -->
+      <div *ngIf="notFoundItems">
+        <app-not-found></app-not-found>
+      </div>
+      <!-- not found ends -->
+      <div *ngIf="!notFoundItems" class="col-xs-12 col-12">
+        <div class="row animate__animated animate__backInUp animate__delay-1s">
+          <div
+            *ngFor="let b of slicedArrBuildings"
+            class="col-12 col-md-4 col-sm-6 d-flex justify-content-center mb-5"
+          >
+            <!-- card by id start -->
+
+            <!-- Card by id ends -->
+            <!-- Cards general start -->
+            <div class="card container-card">
+              <img
+                src="{{ b?.image_principal }}"
+                loading="lazy"
+                class="card-img-top img-card"
+                alt="..."
+              />
+              <div class="container-info-card">
+                <div class="card-header">
+                  <div>
+                    <p class="text-1_2r">{{ b?.name }}</p>
                   </div>
-
-                  <p *ngIf="!b?.on_sale" class="m-0 text-detail-r">En Renta</p>
+                  <div class="">
+                    <p>
+                      {{ b?.ubication }}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <!-- info building ends -->
-              <div class="row mt-3 mb-3">
-                <div
-                  class="col-4 offset-8 d-flex align-items-center justify-content-center"
-                >
-                  <p
-                    class="text-1_2r mb-0"
-                    style="width: fit-content; color: #9b9b9b"
-                  >
-                    Ver
-                  </p>
-                  <a
-                    class=""
-                    [routerLink]="['/detail-house', b.building_type, b.id]"
+
+                <div class="row mt-3 div-row-container-details-card pb-2">
+                  <div
+                    class="col-6 col-md-4 col-sm-6 d-flex align-items-center justify-content-center col-detail"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-square-arrow-right"
-                      width="33"
-                      height="33"
+                      class="icon icon-tabler icon-tabler-ruler-measure"
+                      width="25"
+                      height="25"
                       viewBox="0 0 24 24"
                       stroke-width="1.5"
                       stroke="#9e9e9e"
@@ -377,43 +286,145 @@ ends -->
                       stroke-linejoin="round"
                     >
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M12 16l4 -4l-4 -4" />
-                      <path d="M8 12h8" />
                       <path
-                        d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                        d="M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75z"
                       />
+                      <path d="M9 12v2" />
+                      <path d="M6 12v3" />
+                      <path d="M12 12v3" />
+                      <path d="M18 12v3" />
+                      <path d="M15 12v2" />
+                      <path d="M3 3v4" />
+                      <path d="M3 5h18" />
+                      <path d="M21 3v4" />
                     </svg>
-                  </a>
+                    <p class="m-0 text-detail">
+                      {{ b.area_total }}Mts.<sup>2</sup>
+                    </p>
+                  </div>
+                  <div
+                    class="col-6 col-md-4 col-sm-6 d-flex align-items-center justify-content-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-bed"
+                      width="25"
+                      height="25"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="#9e9e9e"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6" />
+                      <path d="M7 10m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                    </svg>
+                    <p class="m-0 text-detail">
+                      {{ b.rooms }}
+                    </p>
+                  </div>
+                  <div
+                    class="col-6 col-md-4 col-sm-6 d-flex align-items-center justify-content-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-home-dollar"
+                      width="25"
+                      height="25"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="#9e9e9e"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M19 10l-7 -7l-9 9h2v7a2 2 0 0 0 2 2h6" />
+                      <path
+                        d="M9 21v-6a2 2 0 0 1 2 -2h2c.387 0 .748 .11 1.054 .3"
+                      />
+                      <path
+                        d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"
+                      />
+                      <path d="M19 21v1m0 -8v1" />
+                    </svg>
+                    <div *ngIf="b?.on_sale">
+                      <p class="m-0 text-detail-v">En venta</p>
+                    </div>
+
+                    <p *ngIf="!b?.on_sale" class="m-0 text-detail-r">
+                      En Renta
+                    </p>
+                  </div>
                 </div>
+                <!-- info building ends -->
+                <div class="row mt-3 mb-3">
+                  <div
+                    class="col-4 offset-8 d-flex align-items-center justify-content-center"
+                  >
+                    <p
+                      class="text-1_2r mb-0"
+                      style="width: fit-content; color: #9b9b9b"
+                    >
+                      Ver
+                    </p>
+                    <a
+                      class=""
+                      [routerLink]="['/detail-house', b.building_type, b.id]"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-square-arrow-right"
+                        width="33"
+                        height="33"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="#9e9e9e"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 16l4 -4l-4 -4" />
+                        <path d="M8 12h8" />
+                        <path
+                          d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <!-- Button 'ver' ends -->
               </div>
-              <!-- Button 'ver' ends -->
+              <!-- <div class="card-body">
+            <p class="card-text">
+              Some quick example text to build on the card title and make up
+              the bulk of the card's content.
+            </p>
+          </div> -->
             </div>
-            <!-- <div class="card-body">
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div> -->
+            <!-- Cards general end -->
           </div>
-          <!-- Cards general end -->
         </div>
+        <pagination
+          class="mt-3"
+          [itemsPerPage]="9"
+          [boundaryLinks]="true"
+          [totalItems]="buildings.length"
+          previousText="&lsaquo;"
+          nextText="&rsaquo;"
+          firstText="&laquo;"
+          lastText="&raquo;"
+          (pageChanged)="pageChanged($event)"
+        >
+        </pagination>
+        <!--  <pagination [totalItems]="contentArray.length" (pageChanged)="pageChanged($event)"></pagination>
+        <pagination [boundaryLinks]="true" [totalItems]="77"
+        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+</pagination> -->
       </div>
-      <pagination
-        class="mt-3"
-        [itemsPerPage]="9"
-        [boundaryLinks]="true"
-        [totalItems]="buildings.length"
-        previousText="&lsaquo;"
-        nextText="&rsaquo;"
-        firstText="&laquo;"
-        lastText="&raquo;"
-        (pageChanged)="pageChanged($event)"
-      >
-      </pagination>
-      <!--  <pagination [totalItems]="contentArray.length" (pageChanged)="pageChanged($event)"></pagination>
-            <pagination [boundaryLinks]="true" [totalItems]="77"
-            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
-    </pagination> -->
     </div>
   </div>
   <!-- paginator - items ends -->
@@ -626,6 +637,7 @@ ends -->
         class="footer-logo"
         src="../../../assets/src/images/altagama_01.webp"
         alt=""
+        loading="lazy"
       />
     </div>
     <div class="mr">
