@@ -3,11 +3,13 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 /* Services */
 import { HouseService } from 'src/app/shared/services/house.service';
 import { StateService } from 'src/app/shared/services/state.service';
+import { HelperService } from 'src/app/shared/services/helper.service';
 /* Models */
 import { Building, Data } from 'src/app/shared/models/building.model';
 import { City, State } from 'src/app/shared/models/state.model';
 /* Libreries */
 import * as AOS from 'aos';
+import { Helper } from 'src/app/shared/models/helper.model';
 
 @Component({
   selector: 'app-lands',
@@ -22,6 +24,7 @@ export class LandsComponent implements OnInit {
   cityBuildings: Building[] = [];
   notFound = false
   notFoundItems = false
+  helpers: Helper[] = []
 
   states!: State[];
   cities!: City[];
@@ -56,13 +59,15 @@ export class LandsComponent implements OnInit {
 
 
 
-  constructor(private renderer: Renderer2, private houseService: HouseService, private stateService: StateService) { }
+  constructor(private renderer: Renderer2, private houseService: HouseService,
+    private stateService: StateService, private helperService: HelperService) { }
 
   ngOnInit(): void {
     this.goToTop()
     this.states = this.stateService.getAllStates();
     this.cities = this.stateService.getAllCities();
     this.getBuildings()
+    this.getHelpers()
   }
 
   getBuildings() {
@@ -72,7 +77,9 @@ export class LandsComponent implements OnInit {
     if (this.buildings.length == 0) {
       this.notFound = true
       console.log(this.notFound);
-
+    } else {
+      /* las card de los items de muestran si existe mas de 0  en el array, ayuda cuando el value del selecto es todos (0) */
+      this.notFoundItems = false
     }
     console.log("Buildings_ ", this.buildings);
   }
@@ -116,6 +123,7 @@ export class LandsComponent implements OnInit {
     console.log(event.value);
 
     if (event.value == 0) {
+      this.cities = []
       this.getBuildings()
       //this.slicedArrBuildings = this.buildings
       console.log("value 0_", this.slicedArrBuildings);
@@ -247,4 +255,8 @@ export class LandsComponent implements OnInit {
     });
   }
 
+  /* Get helpers */
+  getHelpers() {
+    this.helpers = this.helperService.getAllHelpers()
+  }
 }

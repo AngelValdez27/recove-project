@@ -3,11 +3,13 @@ import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/co
 import { Building } from 'src/app/shared/models/building.model';
 /* Services */
 import { HouseService } from 'src/app/shared/services/house.service';
+import { HelperService } from 'src/app/shared/services/helper.service';
 /* swiper */
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, SwiperOptions, Swiper, EffectCube, EffectFade } from 'swiper';
 SwiperCore.use([Navigation, Pagination, EffectFade, A11y]);
 /* Libreries */
 import * as AOS from 'aos';
+import { Helper } from 'src/app/shared/models/helper.model';
 
 
 @Component({
@@ -27,7 +29,9 @@ export class PrincipalViewComponent implements OnInit {
   buildingsArr: Building[] = []
   newRecentBuildings: Building[] = []
   condos: Building[] = []
-  constructor(private renderer: Renderer2, private houseService: HouseService) { }
+  helpers: Helper[] = []
+
+  constructor(private renderer: Renderer2, private houseService: HouseService, private helperService: HelperService) { }
   slides: any[] = new Array(3).fill({ id: -1, src: '', title: '', subtitle: '' });
 
 
@@ -142,6 +146,7 @@ export class PrincipalViewComponent implements OnInit {
   ngOnInit(): void {
     this.goToTop()
     this.getBuildings()
+    this.getHelpers()
 
     /*  if (document.readyState == 'complete') {
        AOS.refresh();
@@ -272,5 +277,10 @@ export class PrincipalViewComponent implements OnInit {
       left: 0,
       behavior: 'smooth',
     });
+  }
+
+  /* Get helpers */
+  getHelpers() {
+    this.helpers = this.helperService.getAllHelpers()
   }
 }

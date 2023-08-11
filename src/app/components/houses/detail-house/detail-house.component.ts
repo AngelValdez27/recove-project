@@ -41,6 +41,9 @@ export class DetailHouseComponent implements OnInit {
   @ViewChild('icon_nav_2') icon_nav_2!: ElementRef
   @ViewChild('navbar_menu') navbar_menu!: ElementRef
   @ViewChild('div_close') div_close!: ElementRef
+  @ViewChild('wsp_container') wsp_container!: ElementRef
+  @ViewChild('wsp_container_2') wsp_container_2!: ElementRef
+  @ViewChild('contact_list') contact_list!: ElementRef;
 
   constructor(private renderer: Renderer2, private router: Router, private _route: ActivatedRoute,
     private _stateService: StateService, private _houseService: HouseService,
@@ -150,10 +153,49 @@ export class DetailHouseComponent implements OnInit {
     // this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
   }
 
+  /* whats app functions */
+  showContactList() {
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__delay-3s')
+    //this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__rotateIn')
+    this.renderer.addClass(this.wsp_container.nativeElement, 'animate__rotateOut')
+    this.renderer.setStyle(this.wsp_container.nativeElement, 'display', 'none')
+
+    this.renderer.setStyle(this.wsp_container_2.nativeElement, 'display', 'flex')
+    this.renderer.removeClass(this.wsp_container_2.nativeElement, 'animate__rotateOut')
+    this.renderer.addClass(this.wsp_container_2.nativeElement, 'animate__rotateIn')
+
+    this.renderer.setStyle(this.contact_list.nativeElement, 'display', 'block')
+    //this.renderer.removeClass(this.contact_list.nativeElement, 'animate__delay-1s')
+    this.renderer.removeClass(this.contact_list.nativeElement, 'animate__bounceOutDown')
+    this.renderer.addClass(this.contact_list.nativeElement, 'animate__bounceInUp')
+  }
+
+  closeContactList() {
+    //this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    //this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__bounceInUp')
+    // this.renderer.removeStyle(this.wsp_container.nativeElement, 'display')
+    this.renderer.addClass(this.contact_list.nativeElement, 'animate__bounceOutDown')
+    this.renderer.removeClass(this.contact_list.nativeElement, 'animate__bounceInUp')
+    // this.renderer.setProperty(this.contact_list.nativeElement, '--animate-duration', '1.3s')
+    // this.renderer.addClass(this.contact_list.nativeElement, 'animate__delay-1s')
+    this.renderer.setStyle(this.contact_list.nativeElement, 'display', 'none')
+    //this.renderer.setStyle(this.wsp_container_2.nativeElement, 'display', 'none')
+
+    this.renderer.removeClass(this.wsp_container_2.nativeElement, 'animate__rotateIn')
+    this.renderer.addClass(this.wsp_container_2.nativeElement, 'animate__rotateOut')
+    this.renderer.setStyle(this.wsp_container_2.nativeElement, 'display', 'none')
+
+    this.renderer.setStyle(this.wsp_container.nativeElement, 'display', 'flex')
+    this.renderer.removeClass(this.wsp_container.nativeElement, 'animate__rotateOut')
+    this.renderer.addClass(this.wsp_container.nativeElement, 'animate__rotateIn')
+  }
+
   goToTop(): void {
     window.scroll({
       top: 0,
-
+      //   left: 0,
       behavior: 'smooth',
     });
   }

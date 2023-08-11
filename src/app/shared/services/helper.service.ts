@@ -89,7 +89,7 @@ export class HelperService {
       instagram: "https://www.instagram.com/p/Cj6UV88vs3B/",
       twitter: "",
       city_id: 5,
-      state_id: 4,
+      state_id: 2,
       image: "../../../assets/src/images/team/ayari2.webp"
     },
     ]

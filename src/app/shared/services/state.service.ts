@@ -22,11 +22,6 @@ export class StateService {
       id: 3,
       state: "Chihuahua"
     }
-      ,
-    {
-      id: 4,
-      state: "Durango"
-    }
     ];
 
     this.cities = [{
@@ -57,7 +52,7 @@ export class StateService {
       id: 5,
       city: "Comarca Lagunera",
       community: "Gómez Palacio",
-      id_state: 4
+      id_state: 2
     },
     {
       id: 6,
