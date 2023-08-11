@@ -7,27 +7,39 @@
       <p class="text-1r mb-0 title-wsp">Nuestros asesores</p>
     </div>
     <div class="container-contacts col-12">
-      <div class="row d-flex align-items-center justify-content-between">
-        <p class="col-8 mb-0 contact-wsp">Liliana María Herrera Martínez</p>
-        <svg
-          #wsp
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
-          width="50"
-          height="50"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="#2DB146"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      <div class="row">
+        <div
+          *ngFor="let h of helpers"
+          class="col-12 d-flex align-items-center justify-content-between mt-1 mb-1"
         >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-          <path
-            d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
-          />
-        </svg>
+          <p class="col-8 mb-0 contact-wsp">{{ h.name }}</p>
+          <a
+            class="d-flex justify-content-center"
+            style="height: 100%"
+            href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
+            target="_blank"
+          >
+            <svg
+              #wsp
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#2DB146"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+              <path
+                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>

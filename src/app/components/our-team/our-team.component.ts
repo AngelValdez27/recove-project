@@ -187,5 +187,9 @@ export class OurTeamComponent implements OnInit {
       behavior: 'smooth',
     });
   }
+  /* Get helpers */
+  getHelpers() {
+    this.helpers = this.helperService.getAllHelpers()
+  }
 
 }

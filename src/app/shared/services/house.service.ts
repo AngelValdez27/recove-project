@@ -359,6 +359,66 @@ export class HouseService {
         community: true,
         building_type: "casa",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
+      },
+      {
+        id: 12,
+        identifier: 'C001',
+        name: 'Hacienda Real',
+        ubication: 'Torreón Coahuila',
+        price: 10250000,
+        baths: 2,
+        rooms: 8,
+        garage: 1,
+        description: "Esta impresionante casa de lujo ofrece una experiencia de vida inigualable, con sus amplios espacios. Se encuentra ubicada en el prestigioso Fraccionamiento Torreón Jardín. La casa cuenta con una hermosa arquitectura y detalles d e diseño elegantes. La iluminación natural y los techos altos crean un ambiente acogedor.",
+        area_total: 750,
+        area_builded: 460,
+        colony: "Torreón Jardín",
+        postal_code: 27569,
+        state: 2,
+        city: 3,
+        agent: 5,
+        image_principal: "../../../assets/src/images/altagama_01.webp",
+        images: [
+          {
+            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+          },
+          {
+            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+          }
+        ],
+        on_sale: true,
+        available: true,
+        community: true,
+        building_type: "proyecto",
+        link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6",
+        features: [{
+          feature: "Cajones de estacionamiento"
+        },
+        {
+          feature: "11% Interés anual"
+        },
+        {
+          feature: "Crédito a 5 años"
+        },
+        {
+          feature: "Financiamiento directo"
+        },
+        {
+          feature: "Barda perimetral"
+        },
+        {
+          feature: "Alberca"
+        },
+        {
+          feature: "Campo de mini golf"
+        },
+        {
+          feature: "Cajones de estacionamiento"
+        },
+        {
+          feature: "Área recreativa"
+        }
+        ]
       }
     ];
   }
@@ -380,5 +440,9 @@ export class HouseService {
 
   getAllLands() {
     return this.houses.filter(h => h.building_type == "terreno")
+  }
+
+  getAllProjects() {
+    return this.houses.filter(h => h.building_type == "proyecto" && h.available == true)
   }
 }

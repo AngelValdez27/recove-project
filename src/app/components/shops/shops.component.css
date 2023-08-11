@@ -39,7 +39,7 @@
   font-size: 0.8rem;
 }
 .wsp-icon-contact{
-  width: 13% !important;
+  width: 65% !important;
   height: auto;
 }
 .btn-wsp{
@@ -300,6 +300,12 @@
       width: 39%;
     }
   
+    /* wsp */
+    .container-wsp-contact-list{  
+      width: 20%;
+     /*  bottom: 14%;
+      right: 1.5%; */  
+  }
     /* NAVBAR */
     .navbar-navbar {
       display: block;
@@ -392,7 +398,12 @@
   }
   
   @media (max-width: 767px) {
-  
+    /* wsp */
+    .container-wsp-contact-list{  
+      width: 25%;
+     /*  bottom: 14%;
+      right: 1.5%; */  
+  }
     /* Navbar */
     .logo-w {
       width: 70%;
@@ -405,6 +416,12 @@
   }
   
   @media (max-width: 575px) {
+    /* wsp */
+    .container-wsp-contact-list{  
+      width: 30%;
+     /*  bottom: 14%;
+      right: 1.5%; */  
+  }
   
     /* Navbar */
     .logo-w {
@@ -422,6 +439,12 @@
   
   
   @media (max-width: 480px) {
+    /* wsp */
+    .container-wsp-contact-list{  
+      width: 38%;
+     /*  bottom: 14%;
+      right: 1.5%; */  
+  }
   
     /* Navbar */
     .logo-w {
@@ -438,8 +461,22 @@
       width: 80%;
     }
   }
+  @media (max-width: 400px) { 
+      /* wsp */
+     .container-wsp-contact-list{  
+      width: 50%;
+     /*  bottom: 14%;
+      right: 1.5%; */  
+  }
+   }
   
   @media (max-width: 340px) {
+    /* wsp */
+    .container-wsp-contact-list{  
+      width: 100%;
+     /*  bottom: 14%;
+      right: 1.5%; */  
+  }
   
     /* Navbar */
     .logo-w {
@@ -450,4 +487,13 @@
       padding-top: 37%;
     }
   }
+
+  @media (max-width: 230px) { 
+    /* wsp */
+    .container-wsp-contact-list{  
+       width: 100%;
+      /*  bottom: 14%;
+       right: 1.5%; */  
+   }
+}
   

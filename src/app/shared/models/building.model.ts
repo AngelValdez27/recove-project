@@ -27,4 +27,7 @@ export interface Building {
     community?: boolean;
     building_type?: string;
     link_map: string;
+    features?: {
+        feature: string
+    }[];
 }
