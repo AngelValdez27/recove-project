@@ -113,7 +113,7 @@ export class OurTeamComponent implements OnInit {
     this.helpers.map(h => {
       h.state = this.stateService.searchState(h.state_id)
       h.city = this.stateService.searchCity(h.city_id)
-      console.log(h);
+      console.log("wtf ", h);
 
     })
 

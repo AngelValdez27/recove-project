@@ -325,6 +325,7 @@
               class="swiper swiper-display-2"
               [config]="config2"
               data-swiper-autoplay="2000"
+              (swiper)="automaticNextControl($event)"
             >
               <ng-template *ngFor="let p of project.images" swiperSlide>
                 <div class="container-images-swiper">
@@ -478,7 +479,6 @@
           <div class="card-info row d-flex">
             <div
               class="title-info col-12 col-md-4 col-sm-12 d-flex align-items-center justify-content-center"
-              style="height: auto"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -511,7 +511,6 @@
                 style="text-align: start"
               >
                 <svg
-                  style="border: solid 2px blue"
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-award"
                   width="30"
@@ -532,7 +531,7 @@
                     d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"
                   />
                 </svg>
-                <p class="info-text mb-0">
+                <p class="info-text">
                   {{ f.feature }}
                 </p>
               </div>

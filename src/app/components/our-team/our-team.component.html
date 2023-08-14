@@ -169,19 +169,27 @@
 
     <div class="subcontainer-team">
       <div class="container-mision row">
+        <div class="col-12 txt-center txt-justify">
+          <p class="text-3r title-values pt-5">¿Quiénes somos?</p>
+          <p class="values-text txt-justify p-4">
+            Somos una empresa dedicada al mercado inmobiliario de interés
+            social, enfocado en viviendas, terrenos y locales de buena calidad,
+            con el fin de satistacer a nuestros clientes que busquen una compra
+            o bien una renta inmobiliaria accesible.
+          </p>
+        </div>
         <div
           class="col-6 container-text-mision d-flex flex-column align-items-center justify-content-center"
         >
           <p class="mb-0"><small>Nuestra</small></p>
           <p class="text-3r title-mision">Misión</p>
           <p class="text-mision-vision txt-justify">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-            porro hic architecto commodi veniam recusandae nulla non, ab soluta
-            alias odit dignissimos amet expedita incidunt voluptatibus magni
-            doloribus esse sint <br />
-            commodi veniam recusandae nulla non, ab soluta alias odit
-            dignissimos amet expedita incidunt voluptatibus magni doloribus esse
-            sint.
+            Ser una empresa que le brinde a cualquier emprendedor o buscador de
+            una vivienda de interés social, ya sea para venta o renta. Contamos
+            con las mejores opciones, las más accesibles y las más numerosas que
+            pueda haber en el mercado. <br />
+            Somos una empresa especialista en operación y comercialización de
+            bienes inmuebles líder en su ramo.
           </p>
         </div>
         <div class="col-6 img-mision">
@@ -218,13 +226,11 @@
           <p class="mb-0"><small>Nuestra</small></p>
           <p class="text-3r title-vision">Visión</p>
           <p class="text-mision-vision txt-justify">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-            porro hic architecto commodi veniam recusandae nulla non, ab soluta
-            alias odit dignissimos amet expedita incidunt voluptatibus magni
-            doloribus esse sint <br />
-            commodi veniam recusandae nulla non, ab soluta alias odit
-            dignissimos amet expedita incidunt voluptatibus magni doloribus esse
-            sint.
+            Ser la empresa líder de todo México, de vivienda de interés social
+            para venta y renta de locales y terrenos para emprendedores para el
+            desarrollo de sus proyectos y emprendimientos. <br />
+            Ser la empresa con mejores y más abundantes inventarios centrados en
+            tener la mejor calidad para satistacción de nuestros clientes.
           </p>
         </div>
       </div>
@@ -415,11 +421,16 @@
                     <p class="card-text card-text-state mb-0">
                       <small class="text-muted"
                         >{{
-                          helper.city?.id_state == 2 ||
-                          helper.city?.id_state == 4
+                          helper.city?.id_state == 2 &&
+                          helper.city?.city == "Comarca Lagunera"
                             ? helper.city?.community
                             : helper.city?.city
-                        }}, {{ helper.state?.state }}</small
+                        }},
+                        {{
+                          helper.city?.community == "Gómez Palacio"
+                            ? "Durango"
+                            : helper.state?.state
+                        }}</small
                       >
                     </p>
                     <p class="card-text mb-0"><small>Contacto</small></p>
