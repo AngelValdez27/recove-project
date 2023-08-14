@@ -48,7 +48,7 @@
 }
 
 .wsp-icon-contact {
-  width: 13% !important;
+  width: 65% !important;
   height: auto;
 }
 
@@ -366,9 +366,24 @@
 
 /* RESPONSIVE */
 
-@media (max-width: 1190px) {
+/* @media (max-width: 1530px) {
+  .parallax-vision{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: -19%;
+  }
+} */
 
-}
+@media (max-width: 1167px) { 
+  .parallax-vision{
+    height: 50vh;
+/*     background-attachment: fixed;
+    background-position: center; */
+    background-repeat: no-repeat;
+    background-position: -55%;
+    background-size: 68%;
+  }
+ }
 
 @media (max-width: 992px) {
   /* wsp */

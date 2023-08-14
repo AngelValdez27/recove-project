@@ -21,6 +21,14 @@ export class StateService {
     {
       id: 3,
       state: "Chihuahua"
+    },
+    {
+      id: 4,
+      state: "Durango"
+    },
+    {
+      id: 5,
+      state: "Nuevo León"
     }
     ];
 
@@ -65,7 +73,25 @@ export class StateService {
       city: "Mazatlán 2",
       community: "",
       id_state: 1
-    }
+    },
+    {
+      id: 8,
+      city: "Saltillo",
+      community: "",
+      id_state: 2
+    },
+    {
+      id: 9,
+      city: "Monterrey",
+      community: "",
+      id_state: 5
+    },
+    {
+      id: 10,
+      city: "Chihuahua",
+      community: "",
+      id_state: 3
+    },
     ];
   }
 

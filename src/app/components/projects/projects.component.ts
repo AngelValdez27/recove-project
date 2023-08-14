@@ -1,4 +1,5 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { interval } from 'rxjs';
 /* Services */
 import { HouseService } from 'src/app/shared/services/house.service';
 import { StateService } from 'src/app/shared/services/state.service';
@@ -145,5 +146,13 @@ export class ProjectsComponent implements OnInit {
   /* Get helpers */
   getHelpers() {
     this.helpers = this.helperService.getAllHelpers()
+  }
+
+  /* automatic slide */
+  automaticNextControl(swiper: Swiper) {
+    const seconds = interval(3000);
+    seconds.subscribe(() => {
+      swiper.slideNext();
+    });
   }
 }

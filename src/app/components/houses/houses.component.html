@@ -266,7 +266,10 @@ ends -->
 
             <!-- Card by id ends -->
             <!-- Cards general start -->
-            <div class="card container-card">
+            <div
+              class="card container-card"
+              [routerLink]="['/detail-house', b.building_type, b.id]"
+            >
               <img
                 src="{{ b?.image_principal }}"
                 loading="lazy"
