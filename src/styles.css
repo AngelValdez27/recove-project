@@ -6,6 +6,8 @@
 :root{
     --text-blue:#2C3F4C;
     --text-blue-off:#5a6f7e;
+    --swiper-pagination-color: gray; 
+    --swiper-navigation-color: gray;
 }
 
 html,
@@ -28,6 +30,12 @@ html {
 
 .txt-center {
     text-align: center;
+}
+.decoration-none{
+    text-decoration: none;
+}
+.pointer{
+    cursor: pointer;
 }
 /* Text color */
 .text-blue-1{
@@ -56,3 +64,11 @@ html {
 .text-3r{
     font-size: 3rem;
 }
+
+/* Responsive swiper controlls */
+
+@media (max-width: 528px) { 
+    :root{
+        --swiper-navigation-size: 24px;
+    }
+ }

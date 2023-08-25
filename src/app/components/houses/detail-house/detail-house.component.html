@@ -12,33 +12,43 @@
           *ngFor="let h of helpers"
           class="col-12 d-flex align-items-center justify-content-between mt-1 mb-1"
         >
-          <p class="col-8 mb-0 contact-wsp">{{ h.name }}</p>
-          <a
-            class="d-flex justify-content-center"
+          <div
+            class="col-12 d-flex align-items-center justify-content-between container-items-wsp"
             style="height: 100%"
-            href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
-            target="_blank"
           >
-            <svg
-              #wsp
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
-              width="50"
-              height="50"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#2DB146"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            <a
+              class="col-8 mb-0 contact-wsp decoration-none pointer"
+              href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
+              target="_blank"
+              >{{ h.name }}</a
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-              <path
-                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
-              />
-            </svg>
-          </a>
+            <a
+              class="d-flex justify-content-center"
+              style="height: 100%"
+              href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
+              target="_blank"
+            >
+              <svg
+                #wsp
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2DB146"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                <path
+                  d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -49,25 +59,11 @@
     class="btn-wsp animate__animated animate__bounceInUp animate__delay-3s"
     (click)="showContactList()"
   >
-    <svg
-      #wsp
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon icon-tabler icon-tabler-brand-whatsapp icon-popup-wsp"
-      width="45"
-      height="45"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="#2DB146"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-      <path
-        d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
-      />
-    </svg>
+    <img
+      class="icon-popup-wsp"
+      src="../../../assets/src/images/icons/Digital_Glyph_Green.png"
+      alt=""
+    />
   </div>
   <!--  -->
   <div
@@ -101,7 +97,7 @@ ends -->
           ><img
             class="logo-w"
             src="../../../assets/src/images/altagama_01.webp"
-            alt=""
+            alt="Logo Altagama"
             loading="lazy"
         /></a>
         <div class="icon-close">
@@ -239,7 +235,7 @@ ends -->
     <div
       class="container-carousel d-flex justify-content-center align-items-center"
     >
-      <div class="sub-container-carousel">
+      <!--   <div class="sub-container-carousel">
         <carousel [isAnimated]="true" class="d-flex justify-content-center">
           <slide
             class="d-flex justify-content-center"
@@ -247,13 +243,29 @@ ends -->
           >
             <img
               src="{{ i.src }}"
-              alt="first slide"
+              alt="Imagen de producto"
               style="display: block; width: 100%"
               loading="lazy"
             />
           </slide>
         </carousel>
-      </div>
+      </div> -->
+      <swiper
+        effect="fade"
+        class="swiper swiper-display-2"
+        [config]="config2"
+        (swiper)="automaticNextControl($event)"
+      >
+        <ng-template swiperSlide *ngFor="let i of located_building.images">
+          <img
+            src="{{ i.src }}"
+            alt="Imagen de producto"
+            style="display: block; width: 100%"
+            loading="lazy"
+          />
+        </ng-template>
+        <!-- ng template -->
+      </swiper>
     </div>
     <!-- Contaner carousel ends -->
     <div class="container-details-1 row d-flex justify-content-center">
@@ -784,39 +796,53 @@ ends -->
           </svg>
           <h4 class="common-text mb-0">Similares</h4>
         </div>
-        <div
-          *ngFor="let r of randomElements"
-          class="card mb-3"
-          style="max-width: 540px"
-        >
+        <div *ngIf="randomElements.length > 0">
           <div
-            class="row g-0 container-random-element"
-            [routerLink]="['/detail-house', r.building_type, r.id]"
-            (click)="goToTop()"
+            *ngFor="let r of randomElements"
+            class="mb-3"
+            style="max-width: 540px"
           >
-            <div class="col-md-5 d-flex align-items-center">
-              <img
-                loading="lazy"
-                src="{{ r.image_principal }}"
-                class="img-fluid rounded-start w-100 img-similar"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-7">
-              <div class="card-body">
-                <h5 class="card-title">{{ r.name }}</h5>
-                <p class="card-text">
-                  {{ r.price | currency : "MXN" }}
-                </p>
-                <p *ngIf="r.on_sale" class="card-text mb-0 text-onsale-2">
-                  <small class="">En venta</small>
-                </p>
-                <p *ngIf="!r.on_sale" class="card-text mb-0 text-onrent-2">
-                  <small class="">En renta</small>
-                </p>
+            <div
+              class="row container-random-element"
+              [routerLink]="['/detail-house', r.building_type, r.id]"
+              (click)="goToTop()"
+              style="
+                border: 1px solid rgb(209, 209, 209);
+                border-radius: 8px;
+                background-color: #fff;
+              "
+            >
+              <div class="col-md-5 d-flex align-items-center">
+                <img
+                  loading="lazy"
+                  src="{{ r.image_principal }}"
+                  class="img-fluid w-100 rounded-start img-similar"
+                  alt="{{ r.image_principal }}"
+                />
+              </div>
+              <div class="col-md-7">
+                <div class="p-2">
+                  <h5 class="card-title">{{ r.name }}</h5>
+                  <p class="card-text">
+                    {{ r.price | currency : "MXN" }}
+                  </p>
+                  <p *ngIf="r.on_sale" class="card-text mb-0 text-onsale-2">
+                    <small class="">En venta</small>
+                  </p>
+                  <p *ngIf="!r.on_sale" class="card-text mb-0 text-onrent-2">
+                    <small class="">En renta</small>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div
+          *ngIf="randomElements.length == 0"
+          class="d-flex justify-content-center align-items-center"
+          style="height: 100%"
+        >
+          <app-not-found></app-not-found>
         </div>
       </aside>
       <!-- Section - aside-similares 2 ends -->
@@ -958,8 +984,8 @@ ends -->
       <div class="col-md-3 col-12 txt-justify p-4">
         <p class="text-1r">¿Quiénes somos?</p>
         <p class="text-08r">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-          laboriosam, nulla accusamus nemo facere optio? Dolorum quo.
+          Somos una empresa dedicada al mercado inmobiliario de interés social,
+          enfocado en viviendas, terrenos y locales de buena calidad.
         </p>
       </div>
       <div class="col-md-3 col-12 txt-justify p-4">
@@ -1158,7 +1184,7 @@ ends -->
       <img
         class="footer-logo"
         src="../../../../assets/src/images/altagama_01.webp"
-        alt=""
+        alt="Footer logo"
         loading="lazy"
       />
     </div>

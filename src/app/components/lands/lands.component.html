@@ -8,37 +8,44 @@
     </div>
     <div class="container-contacts col-12">
       <div class="row">
-        <div
-          *ngFor="let h of helpers"
-          class="col-12 d-flex align-items-center justify-content-between mt-1 mb-1"
-        >
-          <p class="col-8 mb-0 contact-wsp">{{ h.name }}</p>
-          <a
-            class="d-flex justify-content-center"
+        <div *ngFor="let h of helpers" class="col-12 mt-1 mb-1">
+          <div
+            class="col-12 d-flex align-items-center justify-content-between container-items-wsp"
             style="height: 100%"
-            href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
-            target="_blank"
           >
-            <svg
-              #wsp
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
-              width="50"
-              height="50"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#2DB146"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            <a
+              class="col-8 mb-0 contact-wsp decoration-none pointer"
+              href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
+              target="_blank"
+              >{{ h.name }}</a
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-              <path
-                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
-              />
-            </svg>
-          </a>
+            <a
+              class="d-flex justify-content-center"
+              style="height: 100%"
+              href="https://api.whatsapp.com/send/?phone={{ h.whatsapp }}"
+              target="_blank"
+            >
+              <svg
+                #wsp
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-brand-whatsapp col-2 wsp-icon-contact"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2DB146"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                <path
+                  d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -49,25 +56,11 @@
     class="btn-wsp animate__animated animate__bounceInUp animate__delay-3s"
     (click)="showContactList()"
   >
-    <svg
-      #wsp
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon icon-tabler icon-tabler-brand-whatsapp icon-popup-wsp"
-      width="45"
-      height="45"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="#2DB146"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-      <path
-        d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
-      />
-    </svg>
+    <img
+      class="icon-popup-wsp"
+      src="../../../assets/src/images/icons/Digital_Glyph_Green.png"
+      alt=""
+    />
   </div>
   <!--  -->
   <div
@@ -101,7 +94,7 @@
           ><img
             class="logo-w"
             src="../../../assets/src/images/altagama_01.webp"
-            alt=""
+            alt="Altagama logo"
             loading="lazy"
         /></a>
         <div class="icon-close">
@@ -252,7 +245,9 @@
       </div>
       <!-- not found ends -->
       <div *ngIf="!notFoundItems" class="col-xs-12 col-12">
-        <div class="row animate__animated animate__backInUp animate__delay-1s">
+        <div
+          class="row animate__animated animate__slideInLeft animate__delay-1s"
+        >
           <div
             *ngFor="let b of slicedArrBuildings"
             class="col-12 col-md-4 col-sm-6 d-flex justify-content-center mb-5"
@@ -269,7 +264,7 @@
                 src="{{ b?.image_principal }}"
                 loading="lazy"
                 class="card-img-top img-card"
-                alt="..."
+                alt="Imagen principal"
               />
               <div class="container-info-card">
                 <div class="card-header">
@@ -450,8 +445,8 @@
       <div class="col-md-3 col-12 txt-justify p-4">
         <p class="text-1r">¿Quiénes somos?</p>
         <p class="text-08r">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-          laboriosam, nulla accusamus nemo facere optio? Dolorum quo.
+          Somos una empresa dedicada al mercado inmobiliario de interés social,
+          enfocado en viviendas, terrenos y locales de buena calidad.
         </p>
       </div>
       <div class="col-md-3 col-12 txt-justify p-4">
@@ -650,7 +645,7 @@
       <img
         class="footer-logo"
         src="../../../assets/src/images/altagama_01.webp"
-        alt=""
+        alt="Footer logo"
         loading="lazy"
       />
     </div>

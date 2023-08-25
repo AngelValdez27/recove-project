@@ -38,26 +38,20 @@
   font-weight: 400;
 }
 
-.container-contacts {
-  padding: 2%;
-  height: 40vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
+/* añadido el 16-agosto-2023 */
+.icon-popup-wsp {
+  width: 100%;
+  height: 100%;
 }
 
-.contact-wsp {
-  color: #3f3f3f;
-  font-size: 0.8rem;
-}
-
-.wsp-icon-contact {
-  width: 65% !important;
-  height: auto;
+.icon-tabler-x {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .btn-wsp {
   position: fixed;
-  width: fit-content;
+  width: 6%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,10 +60,38 @@
   z-index: 4;
   border: 2px solid #2DB146;
   border-radius: 50%;
-  padding: 0.5%;
+  padding: 1%;
   background-color: #fff;
-
+  cursor: pointer;
 }
+
+.container-contacts {
+  
+  height: 40vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.contact-wsp {
+  color: #3f3f3f;
+  font-size: 0.8rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.container-items-wsp{
+  padding: 2%;
+}
+.container-items-wsp:is(:hover){
+  background-color: #bebebe57;
+}
+
+
+.wsp-icon-contact {
+  width: 65% !important;
+  height: auto;
+}
+
 
 .wsp-container-2 {
   display: none;
@@ -328,6 +350,7 @@
   width: 100%;
   color: transparent;
   transition: 1s ease;
+  cursor: pointer;
 }
 
 .more {
@@ -343,6 +366,12 @@
   cursor: pointer;
   color: transparent;
   transition: 1s ease;
+  width: 12%;
+}
+
+.icon-plus-storage {
+  width: 100%;
+  height: 100%;
 }
 
 .div-house:hover {
@@ -350,9 +379,9 @@
     color: #eeeeee;
   }
 
-  .link-detail {
+  /* .link-detail {
     color: #eeeeee;
-  }
+  } */
 
   .icon-tabler-square-plus {
     color: #eeeeee;
@@ -369,6 +398,7 @@
 
 .card-building {
   /* width: 30%; */
+  /* cambiar en caso de igualdad de tamaño de imágenes a fit-content en height */
   height: 40vh;
   margin: 2% 0%;
   /* padding: 5%; */
@@ -455,6 +485,21 @@
   border-radius: 7px;
   cursor: pointer;
   height: 40vh;
+  color: #000;
+}
+
+.c-caption-condo {
+  text-align: start;
+  height: 100%;
+  top: 0%;
+  width: 100%;
+  left: 0%;
+  padding: 10%;
+  transition: 500ms ease-in-out;
+}
+
+.c-caption-condo:is(:hover) {
+  background-color: #0000008c;
 }
 
 /* Our Team section */
@@ -492,12 +537,24 @@
 
   /* CONDO */
   .c-caption-condo {
-    padding-top: 0rem;
-    padding-bottom: 0px;
+    background-color: #0000008c;
   }
 }
 
 @media (max-width: 992px) {
+
+  /* wsp pop */
+  .btn-wsp {
+    width: 8%;
+    padding: 1.5%;
+  }
+
+  /* wsp */
+  .container-wsp-contact-list {
+    width: 20%;
+    /*  bottom: 14%;
+    right: 1.5%; */
+  }
 
   .card-tag,
   .card-tag-condo {
@@ -642,8 +699,8 @@
   }
 
   .c-caption-condo {
-    height: 86%;
-    top: 8%;
+    padding: 4% 9% 0% 9%;
+    background-color: #00000057;
   }
 
   .text-sell {
@@ -680,6 +737,9 @@
   .icon-tabler-square-arrow-right {
     width: 70%;
   }
+  .c-caption-condo{
+    padding: 4% 10% 40% 10%;
+  }
 
   /* footer */
   .footer-logo {
@@ -687,7 +747,21 @@
   }
 }
 
+@media (max-width: 799px) { 
+  .c-caption-condo{
+    padding: 0% 15% 20% 8%;
+  }
+  .card-condo-price {
+    margin-bottom: 10%;
+}
+ }
+
 @media (max-width: 767px) {
+
+  /* wsp pop */
+  .btn-wsp {
+    width: 10%;
+  }
 
   /* wsp */
   .container-wsp-contact-list {
@@ -716,6 +790,11 @@
         right: 1.5%; */
   }
 
+  .btn-wsp {
+    width: 11%;
+    padding: 2%;
+  }
+
   /* Navbar */
   .logo-w {
     width: 90%;
@@ -731,17 +810,23 @@
     font-size: 1.5rem !important;
   }
 
+  .card-condo-price {
+    margin-bottom: 0%;
+}
   .card-price {
     font-size: 2rem;
     margin-bottom: 3% !important;
   }
-
+  .card-condo-name {
+    height: 35%;
+}
   .card-img {
-    width: 80%;
+    width: 100% !important;
   }
 
   .card-building {
-    height: 40vh;
+    /* cambiar en caso de diferencia de tamaño de imágenes */
+    height: fit-content;
   }
 
   .card-tag {
@@ -798,6 +883,10 @@
         right: 1.5%; */
   }
 
+  .btn-wsp {
+    width: 13%;
+  }
+
   /* Navbar */
   .logo-w {
     width: 100%;
@@ -845,6 +934,10 @@
     width: 100%;
     /*  bottom: 14%;
         right: 1.5%; */
+  }
+
+  .btn-wsp {
+    width: 15%;
   }
 
   /* Navbar */
