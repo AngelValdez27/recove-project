@@ -32,6 +32,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // onSameUrlNavigation: 'ignore',
+    /* useHash: true, */
     onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]

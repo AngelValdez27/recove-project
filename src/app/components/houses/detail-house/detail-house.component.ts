@@ -5,6 +5,10 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, SwiperOptions, Swiper, EffectCube, EffectFade, Keyboard } from 'swiper';
+SwiperCore.use([Navigation, Pagination, EffectFade, A11y, Keyboard]);
+import { interval } from 'rxjs';
+
 
 /* Services */
 import { HouseService } from 'src/app/shared/services/house.service';
@@ -37,6 +41,18 @@ export class DetailHouseComponent implements OnInit {
   randomElements: Building[] = [];
   helpers: Helper[] = [];
   helper!: Helper;
+
+  config2: SwiperOptions = {
+    loop: true,
+    /* slidesPerView: 1,
+    spaceBetween: 10, */
+    navigation: true,
+    /*    autoplay: {
+         delay: 2000
+       }, */
+    pagination: { clickable: true },
+    /*  scrollbar: { draggable: true }, */
+  };
 
   @ViewChild('icon_nav_2') icon_nav_2!: ElementRef
   @ViewChild('navbar_menu') navbar_menu!: ElementRef
@@ -105,7 +121,8 @@ export class DetailHouseComponent implements OnInit {
 
         // Obtener elementos del array aleatoriamente
         this.randomElements = this.getRandomElements(this.buildings)
-        this.randomElements = this.randomElements.filter(r => r.building_type == b.building_type).slice(0, 2)
+        this.randomElements = this.randomElements.filter(r => r.building_type == b.building_type &&
+          r.id != b.id).slice(0, 2)
         console.log("random elemts_ ", this.randomElements);
       }
     })
@@ -197,6 +214,14 @@ export class DetailHouseComponent implements OnInit {
       top: 0,
       //   left: 0,
       behavior: 'smooth',
+    });
+  }
+
+  /* automatic slide */
+  automaticNextControl(swiper: Swiper) {
+    const seconds = interval(3000);
+    seconds.subscribe(() => {
+      swiper.slideNext(500);
     });
   }
 

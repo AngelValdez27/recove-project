@@ -16,6 +16,7 @@ import { StateService } from 'src/app/shared/services/state.service';
 /* Libreries */
 import * as AOS from 'aos';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, SwiperOptions, Swiper, EffectCube, EffectFade, Keyboard } from 'swiper';
+import { interval } from 'rxjs';
 SwiperCore.use([Navigation, Pagination, EffectFade, A11y, Keyboard]);
 
 @Component({
@@ -92,9 +93,6 @@ export class OurTeamComponent implements OnInit {
     /* slidesPerView: 1,
     spaceBetween: 10, */
     navigation: true,
-    autoplay: {
-      delay: 2000
-    },
     pagination: { clickable: true },
     /*  scrollbar: { draggable: true }, */
   };
@@ -191,5 +189,14 @@ export class OurTeamComponent implements OnInit {
   getHelpers() {
     this.helpers = this.helperService.getAllHelpers()
   }
+
+  /* automatic slide */
+  automaticNextControl(swiper: Swiper) {
+    const seconds = interval(3000);
+    seconds.subscribe(() => {
+      swiper.slideNext(500);
+    });
+  }
+
 
 }

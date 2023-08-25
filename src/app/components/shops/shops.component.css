@@ -15,7 +15,7 @@
   display: none;
   position: fixed;
   width: 15%;
-  bottom: 12%;
+  bottom: 14%;
   right: 1.5%;
   z-index: 4;
   border-radius: 6px;
@@ -31,20 +31,40 @@
   color: #fff;
   font-weight: 400;
 }
-.container-contacts{
-  padding: 2%;
-}
-.contact-wsp{
+/* .container-contacts {
+  height: 40vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+} */
+
+.contact-wsp {
   color: #3f3f3f;
   font-size: 0.8rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.container-items-wsp{
+  padding: 2%;
+}
+.container-items-wsp:is(:hover){
+  background-color: #bebebe57;
 }
 .wsp-icon-contact{
   width: 65% !important;
   height: auto;
 }
+.icon-popup-wsp{
+  width: 100%;
+  height: 100%;
+}
+.icon-tabler-x{
+  width: 100% !important;
+  height: 100% !important;
+}
 .btn-wsp{
   position: fixed;
-  width: fit-content;
+  width: 6%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,9 +73,9 @@
   z-index: 4;
   border: 2px solid #2DB146;
   border-radius: 50%;
-  padding: 0.5%;
+  padding: 1%;
   background-color: #fff;
-
+  cursor: pointer;
 }
 .wsp-container-2{
   display: none;
@@ -295,7 +315,11 @@
   /* RESPONSIVE */
   
   @media (max-width: 992px) {
-  
+    /* wsp pop */
+  .btn-wsp {
+    width: 8%;
+    padding: 1.5%;
+  }
     .card-tag,
     .card-tag-condo {
       width: 39%;
@@ -399,6 +423,10 @@
   }
   
   @media (max-width: 767px) {
+    /* wsp pop */
+   .btn-wsp {
+    width: 10%;
+  }
     /* wsp */
     .container-wsp-contact-list{  
       width: 25%;
@@ -423,6 +451,10 @@
      /*  bottom: 14%;
       right: 1.5%; */  
   }
+  .btn-wsp {
+    width: 11%;
+    padding: 2%;
+  }
   
     /* Navbar */
     .logo-w {
@@ -445,6 +477,9 @@
       width: 38%;
      /*  bottom: 14%;
       right: 1.5%; */  
+  }
+  .btn-wsp {
+    width: 13%;
   }
   
     /* Navbar */
@@ -477,6 +512,9 @@
       width: 100%;
      /*  bottom: 14%;
       right: 1.5%; */  
+  }
+  .btn-wsp {
+    width: 15%;
   }
   
     /* Navbar */

@@ -194,6 +194,7 @@ export class PrincipalViewComponent implements OnInit {
     //arrayTest = arrayTest.at(-6)
     //console.log("l ? ", arrayTest);
     for (let index = 0; index < this.buildingsArr.length; index++) {
+      this.buildingsArr = this.buildingsArr.filter(b => b.building_type != "proyecto")
       if (index > 0 && index < 7) {
         this.newRecentBuildings.push(this.buildingsArr[this.buildingsArr.length - index])
       }

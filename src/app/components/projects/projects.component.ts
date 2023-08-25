@@ -152,7 +152,7 @@ export class ProjectsComponent implements OnInit {
   automaticNextControl(swiper: Swiper) {
     const seconds = interval(3000);
     seconds.subscribe(() => {
-      swiper.slideNext();
+      swiper.slideNext(500);
     });
   }
 }

@@ -19,7 +19,7 @@ export class HouseService {
         baths: 2,
         rooms: 8,
         garage: 1,
-        description: "sta impresionante casa de lujo ofrece una experiencia de vida inigualable, con sus amplios espacios. Se encuentra ubicada en el prestigioso Fraccionamiento Torreón Jardín. La casa cuenta con una hermosa arquitectura y detalles d e diseño elegantes. La iluminación natural y los techos altos crean un ambiente acogedor.",
+        description: "Esta impresionante casa de lujo ofrece una experiencia de vida inigualable, con sus amplios espacios. Se encuentra ubicada en el prestigioso Fraccionamiento Torreón Jardín. La casa cuenta con una hermosa arquitectura y detalles d e diseño elegantes. La iluminación natural y los techos altos crean un ambiente acogedor.",
         area_total: 750,
         area_builded: 460,
         colony: "Torreón Jardín",
@@ -27,7 +27,7 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 1,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmobiliario1.webp",
         images: [
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -57,10 +57,10 @@ export class HouseService {
         state: 1,
         city: 6,
         agent: 2,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueble2.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "../../../assets/src/images/inmueble2.webp"
           },
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -69,7 +69,7 @@ export class HouseService {
         on_sale: false,
         available: true,
         community: false,
-        building_type: "condominio",
+        building_type: "casa",
         link_map: "https://goo.gl/maps/sX69ESwoGeQjPimv6"
       },
       {
@@ -121,7 +121,7 @@ export class HouseService {
         state: 3,
         city: 1,
         agent: 4,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmobiliario1.webp",
         images: [
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_B_T.webp"
@@ -153,7 +153,7 @@ export class HouseService {
         state: 3,
         city: 2,
         agent: 5,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueblehd.webp",
         images: [
           {
             src: "../../../assets/src/images/altagama_01.webp"
@@ -185,7 +185,7 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 6,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueblehd.webp",
         images: [
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -217,7 +217,7 @@ export class HouseService {
         state: 2,
         city: 4,
         agent: 1,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueblehd.webp",
         images: [
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -249,7 +249,7 @@ export class HouseService {
         state: 2,
         city: 5,
         agent: 2,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueble2.webp",
         images: [
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -281,10 +281,10 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 3,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "../../../assets/src/images/inmueblehd.webp"
           },
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -313,10 +313,10 @@ export class HouseService {
         state: 2,
         city: 4,
         agent: 4,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueble2.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "../../../assets/src/images/inmueble2.webp"
           },
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -345,7 +345,7 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 5,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "../../../assets/src/images/inmueble2.webp",
         images: [
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
@@ -377,10 +377,10 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 5,
-        image_principal: "../../../assets/src/images/altagama_01.webp",
+        image_principal: "../../../assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "../../../assets/src/images/inmueble2.webp"
           },
           {
             src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"

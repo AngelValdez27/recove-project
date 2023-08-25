@@ -78,7 +78,7 @@ export class HousesComponent implements OnInit {
       this.notFound = true
       console.log(this.notFound);
     } else {
-      /* las card de los items de muestran si existe mas de 0  en el array, ayuda cuando el value del selecto es todos (0) */
+      /* las card de los items de muestran si existe mas de 0  en el array, ayuda cuando el value del selecto es "todos" (0) */
       this.notFoundItems = false
     }
     console.log("getBuildings_ ", this.buildings);
@@ -113,7 +113,7 @@ export class HousesComponent implements OnInit {
   }
 
   /* Filter functions */
-
+  /* BUSCA CIUDAD SEGÚN EL ESTADO*/
   searchCity(event: any) {
     this.selectorCitySpecial = true;
     this.selectorType = true
@@ -150,6 +150,7 @@ export class HousesComponent implements OnInit {
     }
   }
 
+  /* SELECIONA LA CIUDAD */
   selectCity(event: any) {
     let id_city = event.value
     this.selectorCitySpecial = true;
@@ -161,7 +162,7 @@ export class HousesComponent implements OnInit {
     this.slicedArrBuildings = this.stateBuildings.filter(b => b.city == id_city)
     this.cityBuildings = this.slicedArrBuildings;
     this.selectorType = false
-
+    /* BUSCA CIUDADES ESPECIALES */
     if (id_city == 3 || id_city == 4 || id_city == 5) {
       this.slicedArrBuildings = this.stateBuildings.filter(b => b.community == true).sort((a, b) => (a.city > b.city) ? -1 : 1)
       this.cityBuildings = this.slicedArrBuildings;
@@ -172,11 +173,13 @@ export class HousesComponent implements OnInit {
     // console.log("filter bui by sta_ ", this.slicedArrBuildings);
   }
 
+  /* FUNCION PARA GUARDAR EL ID DE CIUDADES ESPECIALES QUE PERTENEZCAN A UN GURPO DE CIUDADES, EJE; LA COMARCA LAGUNERA */
   selectSpecialCity(event: any) {
     this.speciaCityId = event.value
     //this.slicedArrBuildings = this.cityBuildings.filter(b => b.city == event.value)
   }
 
+  /* SELECIONA YA SEA RENTA O VENTA */
   selectType(event: any) {
     this.typeSelected = JSON.parse(event.value)
     // console.log("on sale ?_ ", this.typeSelected);
@@ -186,6 +189,7 @@ export class HousesComponent implements OnInit {
     this.buttonActive = false
   }
 
+  /* FUNCIÓN PARA BUSCAR SEGUN LOS PARÁMETROS ESTABLECIDOS EN EL FILTRO -  ACCIONADO PR EL BOTÓN */
   searchBuildings() {
 
     if (this.speciaCityId != undefined) {
