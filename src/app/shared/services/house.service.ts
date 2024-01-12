@@ -27,13 +27,13 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 1,
-        image_principal: "../../../assets/src/images/inmobiliario1.webp",
+        image_principal: "./assets/src/images/inmobiliario1.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: false,
@@ -57,13 +57,13 @@ export class HouseService {
         state: 1,
         city: 6,
         agent: 2,
-        image_principal: "../../../assets/src/images/inmueble2.webp",
+        image_principal: "./assets/src/images/inmueble2.webp",
         images: [
           {
-            src: "../../../assets/src/images/inmueble2.webp"
+            src: "./assets/src/images/inmueble2.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: false,
@@ -89,13 +89,13 @@ export class HouseService {
         state: 1,
         city: 7,
         agent: 3,
-        image_principal: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp",
+        image_principal: "./assets/src/images/RECOVE_RECOVE_N_T.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_B_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_B_T.webp"
           }
         ],
         on_sale: true,
@@ -121,13 +121,13 @@ export class HouseService {
         state: 3,
         city: 1,
         agent: 4,
-        image_principal: "../../../assets/src/images/inmobiliario1.webp",
+        image_principal: "./assets/src/images/inmobiliario1.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_B_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_B_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -153,13 +153,13 @@ export class HouseService {
         state: 3,
         city: 2,
         agent: 5,
-        image_principal: "../../../assets/src/images/inmueblehd.webp",
+        image_principal: "./assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/altagama_01.webp"
+            src: "./assets/src/images/altagama_01.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -185,13 +185,13 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 6,
-        image_principal: "../../../assets/src/images/inmueblehd.webp",
+        image_principal: "./assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -217,13 +217,13 @@ export class HouseService {
         state: 2,
         city: 4,
         agent: 1,
-        image_principal: "../../../assets/src/images/inmueblehd.webp",
+        image_principal: "./assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: false,
@@ -249,13 +249,13 @@ export class HouseService {
         state: 2,
         city: 5,
         agent: 2,
-        image_principal: "../../../assets/src/images/inmueble2.webp",
+        image_principal: "./assets/src/images/inmueble2.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -281,13 +281,13 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 3,
-        image_principal: "../../../assets/src/images/inmueblehd.webp",
+        image_principal: "./assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/inmueblehd.webp"
+            src: "./assets/src/images/inmueblehd.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -313,13 +313,13 @@ export class HouseService {
         state: 2,
         city: 4,
         agent: 4,
-        image_principal: "../../../assets/src/images/inmueble2.webp",
+        image_principal: "./assets/src/images/inmueble2.webp",
         images: [
           {
-            src: "../../../assets/src/images/inmueble2.webp"
+            src: "./assets/src/images/inmueble2.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -345,13 +345,13 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 5,
-        image_principal: "../../../assets/src/images/inmueble2.webp",
+        image_principal: "./assets/src/images/inmueble2.webp",
         images: [
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
@@ -377,13 +377,13 @@ export class HouseService {
         state: 2,
         city: 3,
         agent: 5,
-        image_principal: "../../../assets/src/images/inmueblehd.webp",
+        image_principal: "./assets/src/images/inmueblehd.webp",
         images: [
           {
-            src: "../../../assets/src/images/inmueble2.webp"
+            src: "./assets/src/images/inmueble2.webp"
           },
           {
-            src: "../../../assets/src/images/RECOVE_RECOVE_N_T.webp"
+            src: "./assets/src/images/RECOVE_RECOVE_N_T.webp"
           }
         ],
         on_sale: true,
