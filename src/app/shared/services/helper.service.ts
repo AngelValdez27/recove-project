@@ -40,7 +40,7 @@ export class HelperService {
       twitter: "",
       city_id: 3,
       state_id: 2,
-      image: "../../../assets/src/images/team/ayari2.webp"
+      image: "./assets/src/images/team/ayari2.webp"
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ export class HelperService {
       twitter: "",
       city_id: 5,
       state_id: 4,
-      image: "../../../assets/src/images/team/ayari2.webp"
+      image: "./assets/src/images/team/ayari2.webp"
     },
     {
       id: 3,
@@ -68,7 +68,7 @@ export class HelperService {
       twitter: "",
       city_id: 10,
       state_id: 3,
-      image: "../../../assets/src/images/team/ayari2.webp"
+      image: "./assets/src/images/team/ayari2.webp"
     },
     {
       id: 4,
@@ -82,7 +82,7 @@ export class HelperService {
       twitter: "",
       city_id: 9,
       state_id: 5,
-      image: "../../../assets/src/images/team/ayari2.webp"
+      image: "./assets/src/images/team/ayari2.webp"
     },
     {
       id: 5,
@@ -96,7 +96,7 @@ export class HelperService {
       twitter: "",
       city_id: 6,
       state_id: 1,
-      image: "../../../assets/src/images/team/ayari2.webp"
+      image: "./assets/src/images/team/ayari2.webp"
     },
     {
       id: 6,
@@ -110,7 +110,7 @@ export class HelperService {
       twitter: "",
       city_id: 8,
       state_id: 2,
-      image: "../../../assets/src/images/team/ayari2.webp"
+      image: "./assets/src/images/team/ayari2.webp"
     },
     ]
   }
